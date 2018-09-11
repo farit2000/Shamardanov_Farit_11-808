@@ -119,24 +119,40 @@ namespace Experiment
 
 
 
+/*Восьмая задача*/
 
-
-            //задаваться будет равнение прямой вида Ax+By+c=0 и кордината точки
-            Console.WriteLine("Enter A");
-            int A = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter B");
-            int B = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter C");
-            int C = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter x");
-            int x = int.Parse(Console.ReadLine());
-            Console.WriteLine("Enter y");
-            int y = int.Parse(Console.ReadLine());
-            int C2 = -B * x + A * y;
-            double y2 = (C2 * A - C * B) / (A * A + B * B);
-            double x2 = (-C - B * y) / A;
-            Console.WriteLine("({0},{1})", x2, y2);
-
+        /*  //задаваться будет равнение прямой вида Ax+By+c=0 и кордината точки
+              Console.WriteLine("Enter A");
+              int A = int.Parse(Console.ReadLine());
+              Console.WriteLine("Enter B");
+              int B = int.Parse(Console.ReadLine());
+              Console.WriteLine("Enter C");
+              int C = int.Parse(Console.ReadLine());
+              Console.WriteLine("Enter x");
+              double x = int.Parse(Console.ReadLine());
+              Console.WriteLine("Enter y");
+              double y = int.Parse(Console.ReadLine());
+              double C2 = -B * x + A * y;
+              double x2 = 0;
+              double y2 = 0;
+              if (A == 0)  //если A = 0
+              {
+                  y2 = (-C) / B;
+                  x2 = (-C2) / B;
+              }
+              if (B == 0) // если B = 0
+              {
+                  x2 = (-C) / A;
+                  y2 = (C2) / A;
+              }
+              if (A != 0 && B != 0)
+              {
+                  y2 = (C2 * A - C * B) / (A * A + B * B);
+                  x2 = (-A * C - C2 * B) / (B * B + A * A);
+                  // Console.WriteLine("({0},{1})", x2, y2);
+              }
+              Console.WriteLine("({0};{1})", x2, y2);
+              */
         }
         
     }
