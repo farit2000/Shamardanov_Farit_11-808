@@ -72,11 +72,17 @@ namespace Experiment
 
 
             /*Пятая задача*/
-            /*  int a = int.Parse(Console.ReadLine());
+            /*  
+                int a = int.Parse(Console.ReadLine());
+            int n = 0; // число для учтения високосного года, если високосный год находиться на границе
+            if (a % 4 == 0 && a % 400 == 0){
+                n++;
+            }
                 int b = int.Parse(Console.ReadLine());
-                Console.WriteLine((b / 4 - b / 100 + b / 400) - (a / 4 - a / 100 + a / 400));
+                
+                Console.WriteLine(n + (b / 4 - b / 100 + b / 400) - (a / 4 - a / 100 + a / 400));
 
-            */
+          */
 
 
 
