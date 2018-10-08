@@ -16,12 +16,10 @@ namespace Experiment
                 //находим в скольки значных числах лежит искомое число
                 while (num < n)
                 {
-
                     num = num + i * k; 
                     if (i == 0) i++;
                     i++;
                     k = k * 10;
-
                 }
                 num = num - (i - 1) * (k / 10);
                 i = Math.Abs(i - 1);
@@ -35,6 +33,5 @@ namespace Experiment
                 Console.WriteLine(chisl.ToString()[q]);
             }
         }
-
     }
 }
