@@ -1,1 +1,12 @@
-qwerty
+    Test("hello world", new[] { "hello", "world" });
+	Test("a \"bcd ef\" \'x y\'", new[] {  "a", "bcd ef", "x y" });
+	Test("\'\"3\"\'", new[] {"\"3\"" });
+	Test("a\"b", new[] {"a" , "b" });
+	Test("\"\\\\\"", new[] {"\\"});	
+	Test("", new string[0]);
+	Test("\"", new[] { "" });
+	Test("hello    world", new[] { "hello", "world" });
+	Test("   hello    world    ", new[] { "hello", "world" });
+	Test("\"hello world  ", new[] { "hello world  " });
+	Test("\"\'\'\" hello", new[]{"\'\'","hello"});
+    //Test(@"''''" , new[] {""});
