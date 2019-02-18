@@ -1,0 +1,31 @@
+using System;
+using System.Collections.Generic;
+
+namespace Farei
+{
+    class MainClass
+    {
+        public static void Main(string[] args)
+        {
+            FareiSequence(Convert.ToInt32(Console.ReadLine()));
+        }
+
+        public static void FareiSequence(int n)
+        {
+            Console.WriteLine("{0} / {1}", 0, 1);
+            FareiSequence(n, 0, 1, 1, 1);
+            Console.WriteLine("{0} / {1}", 1, 1);
+        }
+
+        private static void FareiSequence(int n, int x, int y, int z, int t)
+        {
+            int a = x + z, b = y + t;
+            if (b <= n)
+            {
+                FareiSequence(n, x, y, a, b);
+                Console.WriteLine("{0} / {1}", a, b);
+                FareiSequence(n, a, b, z, t);
+            }
+        }
+    }
+}
