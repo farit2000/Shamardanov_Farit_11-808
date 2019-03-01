@@ -60,7 +60,7 @@ namespace Graph
                 time2.Add(linkedList.Count, watch.ElapsedTicks);
             }
                 LineItem f1_curve = pane.AddCurve("Array", time1, Color.Blue, SymbolType.Circle);
-                LineItem f2_curve = pane.AddCurve("Lin", time2, Color.Red, SymbolType.Plus);
+                LineItem f2_curve = pane.AddCurve("LinkedList", time2, Color.Red, SymbolType.Plus);
                 zedGraphControl1.AxisChange();
                 zedGraphControl1.Invalidate();
         }
