@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Graph
 {
-    internal class SmoothSort2
+    internal class SmoothSort
     {
         static int q, r, p, b, c, r1, b1, c1;
         //Comparator function
