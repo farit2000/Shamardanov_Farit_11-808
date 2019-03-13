@@ -1,137 +1,396 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Graph
 {
-    internal class SmoothSort
+    internal class SmoothSort2
     {
-        //input array to sort
-        public void Sort(int[] InputArray)
+        static int q, r, p, b, c, r1, b1, c1;
+        //Comparator function
+        static bool IsAscending(int A, int B)
         {
-            int len = InputArray.Length;
-            for (int i = len / 2 - 1; i >= 0; i--)
-                LeonardHeap(InputArray, len, i);
-            //create binary Heap
-            for (int i = len - 1; i >= 0; i--)
+            return A < B;
+        }
+        //Perform an "Up" operation on the actual number
+        static void Up(ref int IA, ref int IB, ref int temp)
+        {
+            temp = IA;
+            IA += IB + 1;
+            IB = temp;
+        }
+        //Perform a "Down" operation on the actual number
+        private static void Down(ref int IA, ref int IB, ref int temp)
+        {
+            temp = IB;
+            IB = IA - IB - 1;
+            IA = temp;
+        }
+        //Sifts up the root of the stretch in question
+        static void Sift(ref LinkedList<int> A)
+        {
+            int r0, r2, temp = 0;
+            int t;
+            r0 = r1;
+            t = A.ReadForIndex(r0);
+            while (b1 >= 3)
             {
-                int temp = InputArray[0];
-                InputArray[0] = InputArray[i];
-                InputArray[i] = temp;
-                LeonardHeap(InputArray, i, 0);
+                r2 = r1 - b1 + c1;
+                if (!IsAscending(A.ReadForIndex(r1 - 1), A.ReadForIndex(r2)))
+                {
+                    r2 = r1 - 1;
+                    Down(ref b1, ref c1, ref temp);
+                }
+                if (IsAscending(A.ReadForIndex(r2), t))
+                    b1 = 1;
+                else
+                {
+                    A.WriteForIndex(r1, A.ReadForIndex(r2));
+                    r1 = r2;
+                    Down(ref b1, ref c1, ref temp);
+                }
+            }
+            if (Convert.ToBoolean(r1 - r0))
+                A.WriteForIndex(r1, t);
+        }
+        //Sifts up the root of the stretch in question
+        static void Sift(ref int[] A)
+        {
+            int r0, r2, temp = 0;
+            int t;
+            r0 = r1;
+            t = A[r0];
+            while (b1 >= 3)
+            {
+                r2 = r1 - b1 + c1;
+                if (!IsAscending(A[r1 - 1], A[r2]))
+                {
+                    r2 = r1 - 1;
+                    Down(ref b1, ref c1, ref temp);
+                }
+                if (IsAscending(A[r2], t))
+                    b1 = 1;
+                else
+                {
+                    A[r1] = A[r2];
+                    r1 = r2;
+                    Down(ref b1, ref c1, ref temp);
+                }
+            }
+            if (Convert.ToBoolean(r1 - r0))
+                A[r1] = t;
+        }
+        //Trinkles the roots of the stretches of a given LinkedList and root
+        static void Trinkle(ref LinkedList<int> A)
+        {
+            int p1, r2, r3, r0, temp = 0;
+            int t;
+            p1 = p;
+            b1 = b;
+            c1 = c;
+            r0 = r1;
+            t = A.ReadForIndex(r0);
+            while (p1 > 0)
+            {
+                while ((p1 & 1) == 0)
+                {
+                    p1 >>= 1;
+                    Up(ref b1, ref c1, ref temp);
+                }
+                r3 = r1 - b1;
+                if ((p1 == 1) || IsAscending(A.ReadForIndex(r3), t))
+                    p1 = 0;
+                else
+                {
+                    --p1;
+                    if (b1 == 1)
+                    {
+                        A.WriteForIndex(r1, A.ReadForIndex(r3));
+                        r1 = r3;
+                    }
+                    else
+                    {
+                        if (b1 >= 3)
+                        {
+                            r2 = r1 - b1 + c1;
+                            if (!IsAscending(A.ReadForIndex(r1 - 1), A.ReadForIndex(r2)))
+                            {
+                                r2 = r1 - 1;
+                                Down(ref b1, ref c1, ref temp);
+                                p1 <<= 1;
+                            }
+                            if (IsAscending(A.ReadForIndex(r2), A.ReadForIndex(r3)))
+                            {
+                                A.WriteForIndex(r1, A.ReadForIndex(r3));
+                                r1 = r3;
+                            }
+                            else
+                            {
+                                A.WriteForIndex(r1, A.ReadForIndex(r2));
+                                r1 = r2;
+                                Down(ref b1, ref c1, ref temp);
+                                p1 = 0;
+                            }
+                        }
+                    }
+                }
+            }
+            if (Convert.ToBoolean(r0 - r1))
+                A.WriteForIndex(r1, t);
+            Sift(ref A);
+        }
+        //Trinkles the roots of the stretches of a given LinbkedList and root when the adjacent stretches are trusty
+        static void SemiTrinkle(ref LinkedList<int> A)
+        {
+            int T;
+            r1 = r - c;
+            if (!IsAscending(A.ReadForIndex(r1), A.ReadForIndex(r)))
+            {
+                T = A.ReadForIndex(r);
+                A.WriteForIndex(r, A.ReadForIndex(r1));
+                A.WriteForIndex(r1, T);
+                Trinkle(ref A);
             }
         }
-
-        // 1)Чтение по индексу
-        // 2)Присвоение по индексу
-
-        public void Sort(LinkedList<int> list)
+        //Trinkles the roots of the stretches of a given array and root
+        static void Trinkle(ref int[] A)
         {
-            //var InputArray = linkedList.ToArray();
-            int len = list.Count;
-            for (int i = len / 2 - 1; i >= 0; i--)
-                LeonardHeap(list, len, i);
-            //create binary Heap
-            for (int i = len - 1; i >= 0; i--)
+            int p1, r2, r3, r0, temp = 0;
+            int t;
+            p1 = p;
+            b1 = b;
+            c1 = c;
+            r0 = r1;
+            t = A[r0];
+            while (p1 > 0)
             {
-                var temp = list.First.Value;
-                list.WriteForIndex(0, list.ReadForIndex(i));
-                list.WriteForIndex(i, temp);
-                LeonardHeap(list, i, 0);
+                while ((p1 & 1) == 0)
+                {
+                    p1 >>= 1;
+                    Up(ref b1, ref c1, ref temp);
+                }
+                r3 = r1 - b1;
+                if ((p1 == 1) || IsAscending(A[r3], t))
+                    p1 = 0;
+                else
+                {
+                    --p1;
+                    if (b1 == 1)
+                    {
+                        A[r1] = A[r3];
+                        r1 = r3;
+                    }
+                    else
+                    {
+                        if (b1 >= 3)
+                        {
+                            r2 = r1 - b1 + c1;
+                            if (!IsAscending(A[r1 - 1], A[r2]))
+                            {
+                                r2 = r1 - 1;
+                                Down(ref b1, ref c1, ref temp);
+                                p1 <<= 1;
+                            }
+                            if (IsAscending(A[r2], A[r3]))
+                            {
+                                A[r1] = A[r3];
+                                r1 = r3;
+                            }
+                            else
+                            {
+                                A[r1] = A[r2];
+                                r1 = r2;
+                                Down(ref b1, ref c1, ref temp);
+                                p1 = 0;
+                            }
+                        }
+                    }
+                }
+            }
+            if (Convert.ToBoolean(r0 - r1))
+                A[r1] = t;
+            Sift(ref A);
+        }
+        //Trinkles the roots of the stretches of a given array and root when the adjacent stretches are trusty
+        static void SemiTrinkle(ref int[] A)
+        {
+            int T;
+            r1 = r - c;
+            if (!IsAscending(A[r1], A[r]))
+            {
+                T = A[r];
+                A[r] = A[r1];
+                A[r1] = T;
+                Trinkle(ref A);
             }
         }
-
-
-        //public int ReadForIndex(int index, LinList<int> list)
-        //{
-        //    int count = 0;
-        //    foreach(var e in list)
-        //    {
-        //        if (index == count)
-        //            return e;
-        //        count++;
-        //    }
-        //    throw new NotImplementedException();
-        //}
-
-        //public int WriteForIndex(int index,int element, ref LinkedList<int> list)
-        //{
-        //    list.            int count = 0;
-        //    for (var i = list.GetEnumerator(); i.MoveNext();)
-        //    {
-        //        LinkedListNode<int> e = i.Current;
-        //        if (index == count)
-        //            e.Value = element;
-        //        count++;
-        //    }
-
-        //    throw new NotImplementedException();
-        //}
-
-        //public LinkedListNode<int> node(int index)
-        //{
-        //    // assert isElementIndex(index);
-
-        //    if (index < ( >> 1))
-        //    {
-        //        LinkedListNode<int> x = first;
-        //        for (int i = 0; i < index; i++)
-        //            x = x.next;
-        //        return x;
-        //    }
-        //    else
-        //    {
-        //        Node<E> x = last;
-        //        for (int i = size - 1; i > index; i--)
-        //            x = x.prev;
-        //        return x;
-        //    }
-        //}
-
-
-        //to compare the childs with root to make the max-heap
-        void LeonardHeap(int[] arr, int len, int index)
+        //The main SmoothSort funktion for array
+        public void Sort(int[] array)
         {
-            int lar = index;
-            int l = 2 * index + 1;
-            int r = 2 * index + 2;
-            if (l < len && arr[l] > arr[lar])
-                lar = l;
-            if (r < len && arr[r] > arr[lar])
-                lar = r;
-            if (lar != index)
+            //Start of main function
+            int temp = 0;
+            q = 1;
+            r = 0;
+            p = 1;
+            b = 1;
+            c = 1;
+            //building the tree
+            while (q < array.Length)
             {
-                int swap = arr[index];
-                arr[index] = arr[lar];
-                arr[lar] = swap;
-                LeonardHeap(arr, len, lar);
+                r1 = r;
+                if ((p & 7) == 3)
+                {
+                    b1 = b;
+                    c1 = c;
+                    Sift(ref array);
+                    p = (p + 1) >> 2;
+                    Up(ref b, ref c, ref temp);
+                    Up(ref b, ref c, ref temp);
+                }
+                else if ((p & 3) == 1)
+                {
+                    if (q + c < array.Length)
+                    {
+                        b1 = b;
+                        c1 = c;
+                        Sift(ref array);
+                    }
+                    else
+                        Trinkle(ref array);
+                    Down(ref b, ref c, ref temp);
+                    p <<= 1;
+                    while (b > 1)
+                    {
+                        Down(ref b, ref c, ref temp);
+                        p <<= 1;
+                    }
+                    ++p;
+                }
+                ++q;
+                ++r;
             }
-        }
-
-        void LeonardHeap(LinkedList<int> list, int len, int index)
-        {
-            int lar = index;
-            int l = 2 * index + 1;
-            int r = 2 * index + 2;
-            if (l < len && list.ReadForIndex(l) > list.ReadForIndex(lar))
-                lar = l;
-            if (r < len && list.ReadForIndex(r) > list.ReadForIndex(lar))
-                lar = r;
-            if (lar != index)
+            r1 = r;
+            Trinkle(ref array);
+            //building the sorted array
+            while (q > 1)
             {
-                int swap = list.ReadForIndex(index);
-                list.WriteForIndex(index, list.ReadForIndex(lar));
-                list.WriteForIndex(lar, swap);
-                LeonardHeap(list, len, lar);
+                --q;
+                if (b == 1)
+                {
+                    --r;
+                    --p;
+                    while ((p & 1) == 0)
+                    {
+                        p >>= 1;
+                        Up(ref b, ref c, ref temp);
+                    }
+                }
+                else
+                {
+                    if (b >= 3)
+                    {
+                        --p;
+                        r = r - b + c;
+                        if (p > 0)
+                            SemiTrinkle(ref array);
+                        Down(ref b, ref c, ref temp);
+                        p = (p << 1) + 1;
+                        r = r + c;
+                        SemiTrinkle(ref array);
+                        Down(ref b, ref c, ref temp);
+                        p = (p << 1) + 1;
+                    }
+                }
             }
+            /*
+             * element q is done
+             * element 0 is done
+             */
         }
-
-        static void PrintSortedArray(int[] array)
+        //The main SmoothSort funktion for LinkedList
+        public void Sort(LinkedList<int> array)
         {
-            int len = array.Length;
-            for (int i = 0; i < len; ++i)
-                Console.WriteLine(array[i] + "");
-            Console.Read();
+            //Start of main function
+            int temp = 0;
+            q = 1;
+            r = 0;
+            p = 1;
+            b = 1;
+            c = 1;
+            //building the tree
+            while (q < array.Count)
+            {
+                r1 = r;
+                if ((p & 7) == 3)
+                {
+                    b1 = b;
+                    c1 = c;
+                    Sift(ref array);
+                    p = (p + 1) >> 2;
+                    Up(ref b, ref c, ref temp);
+                    Up(ref b, ref c, ref temp);
+                }
+                else if ((p & 3) == 1)
+                {
+                    if (q + c < array.Count)
+                    {
+                        b1 = b;
+                        c1 = c;
+                        Sift(ref array);
+                    }
+                    else
+                        Trinkle(ref array);
+                    Down(ref b, ref c, ref temp);
+                    p <<= 1;
+                    while (b > 1)
+                    {
+                        Down(ref b, ref c, ref temp);
+                        p <<= 1;
+                    }
+                    ++p;
+                }
+                ++q;
+                ++r;
+            }
+            r1 = r;
+            Trinkle(ref array);
+            //building the sorted LinkedList
+            while (q > 1)
+            {
+                --q;
+                if (b == 1)
+                {
+                    --r;
+                    --p;
+                    while ((p & 1) == 0)
+                    {
+                        p >>= 1;
+                        Up(ref b, ref c, ref temp);
+                    }
+                }
+                else
+                {
+                    if (b >= 3)
+                    {
+                        --p;
+                        r = r - b + c;
+                        if (p > 0)
+                            SemiTrinkle(ref array);
+                        Down(ref b, ref c, ref temp);
+                        p = (p << 1) + 1;
+                        r = r + c;
+                        SemiTrinkle(ref array);
+                        Down(ref b, ref c, ref temp);
+                        p = (p << 1) + 1;
+                    }
+                }
+            }
+            /*
+             * element q is done
+             * element 0 is done
+             */
         }
     }
 }
