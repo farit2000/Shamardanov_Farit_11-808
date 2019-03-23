@@ -1,0 +1,150 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace ShopLinqTask
+{
+    public class UsersInfomation
+    {
+        public int UsersCode;
+        public string UsersStreet;
+        public string DateOfBorn;
+    }
+
+    public class ProductsInformation
+    {
+        public string MadeCountry;
+        public int Ctegory;
+        public int Articul;
+
+    }
+
+    public class DiskountForUsers
+    {
+        public int Diskount;
+        public int UserCode;
+        public string ShopName;
+    }
+
+    public class ProductPrice
+    {
+        public int Articul;
+        public string ShopName;
+        public int Price;
+    }
+
+    public class PurchasesInformation
+    {
+        public int UserId;
+        public string ShopName;
+        public int Articul;
+    }
+
+    public class MainClass
+    {
+        public static void Main(string[] args)
+        {
+            var A = new List<UsersInfomation>();
+            var C = new List<DiskountForUsers>();
+            var B = new List<ProductsInformation>();
+            var D = new List<ProductPrice>();
+            var E = new List<PurchasesInformation>();
+            A.Add(new UsersInfomation { UsersCode = 3, UsersStreet = "qwerty", DateOfBorn = "qwe" });
+            A.Add(new UsersInfomation { UsersCode = 0, UsersStreet = "qwerty1", DateOfBorn = "qwe2" });
+            A.Add(new UsersInfomation { UsersCode = 2, UsersStreet = "qwerty2", DateOfBorn = "qwe" });
+            A.Add(new UsersInfomation { UsersCode = 1, UsersStreet = "qwerty3", DateOfBorn = "qwe" });
+            A.Add(new UsersInfomation { UsersCode = 3, UsersStreet = "qwerty", DateOfBorn = "qwe" });
+            C.Add(new DiskountForUsers { Diskount = 50, UserCode = 3, ShopName ="paprica"});
+            C.Add(new DiskountForUsers { Diskount = 30, UserCode = 0, ShopName = "paprica1" });
+            C.Add(new DiskountForUsers { Diskount = 20, UserCode = 1, ShopName = "paprica2" });
+            C.Add(new DiskountForUsers { Diskount = 10, UserCode = 1, ShopName = "paprica1" });
+            C.Add(new DiskountForUsers { Diskount = 50, UserCode = 3, ShopName = "paprica3" });
+            B.Add(new ProductsInformation { Articul = 2 , Ctegory = 1, MadeCountry = "Russia"});
+            B.Add(new ProductsInformation { Articul = 1, Ctegory = 3, MadeCountry = "USA" });
+            B.Add(new ProductsInformation { Articul = 0, Ctegory = 3, MadeCountry = "Germany" });
+            B.Add(new ProductsInformation { Articul = 3, Ctegory = 2, MadeCountry = "Japan" });
+            B.Add(new ProductsInformation { Articul = 2, Ctegory = 1, MadeCountry = "Russia" });
+            D.Add(new ProductPrice { Articul = 2, Price = 100, ShopName = "qwerty" });
+            D.Add(new ProductPrice { Articul = 1, Price = 120, ShopName = "qwerty1" });
+            D.Add(new ProductPrice { Articul = 0, Price = 1300, ShopName = "qwerty2" });
+            D.Add(new ProductPrice { Articul = 2, Price = 1200, ShopName = "qwerty3" });
+            D.Add(new ProductPrice { Articul = 3, Price = 110, ShopName = "qwerty" });
+            E.Add(new PurchasesInformation { Articul = 0, ShopName = "qwerty", UserId = 0 });
+            E.Add(new PurchasesInformation { Articul = 1, ShopName = "qwerty1", UserId = 2 });
+            E.Add(new PurchasesInformation { Articul = 2, ShopName = "qwerty2", UserId = 1 });
+            E.Add(new PurchasesInformation { Articul = 2, ShopName = "qwerty3", UserId = 3 });
+            E.Add(new PurchasesInformation { Articul = 0, ShopName = "qwerty", UserId = 2 });
+            FirstTask(A, C);
+            SecondTask(A, C);
+            //ThirdTask(B, D);
+            FourTask(D, E);
+        }
+
+        public static void FirstTask(List<UsersInfomation> A, List<DiskountForUsers>  C)
+        {
+            var z = C.GroupBy(diskount => diskount.UserCode)
+            .Select(group => new
+            {
+                CustomerId = group.Key,
+                ShopCount = group.Count(),
+                UserStreet = A.Find(x => group.Key == x.UsersCode)
+            })
+            .OrderBy(x => x.ShopCount)
+            .ThenBy(x => x.CustomerId);
+            foreach (var e in z)
+                Console.WriteLine(e);
+        }
+
+        public static void SecondTask(List<UsersInfomation> A, List<DiskountForUsers> C)
+        {
+            var z = C.Join(A, e => e.UserCode, o => o.UsersCode, (d, p) =>
+                new
+                {
+                 ShopName = d.ShopName,
+                 CustomersBirthday = p.DateOfBorn,
+                 AvDiskount = d.Diskount,
+                })
+                .GroupBy(e => Tuple.Create(e.ShopName, e.CustomersBirthday))
+                .Select(e =>
+                new
+                {
+                 ShopName = e.Key.Item1,
+                 CustomersBirthday = e.Key.Item2,
+                 AvDiskount = Math.Floor(e.Average(x => x.AvDiskount))
+                })
+                .OrderBy(e => e.ShopName)
+                .ThenBy(e => e.CustomersBirthday);
+                foreach (var e in z)
+                Console.WriteLine(e);
+        }
+
+        public static void ThirdTask(List<ProductsInformation> B, List<ProductPrice> D)
+        {
+            var w = B.Select(e => new
+            {
+                ProductsNumber = D.Count(z => z.Articul == e.Articul),
+                CountryName = e.MadeCountry,
+                minProce = D.Min()
+            })
+            .OrderBy(e => e.ProductsNumber)
+            .ThenBy(e => e.CountryName);
+            foreach (var e in w)
+                Console.WriteLine(e);
+        }
+
+        public static void FourTask(List<ProductPrice> D, List<PurchasesInformation> E)
+        {
+            var q = D.Select(e => new
+            {
+                NumberOfBuys = E.Count(z => z.Articul == e.Articul),
+                Articul = e.Articul,
+                MaxPrise = D.Max(z => z.Articul == e.Articul)
+            })
+            .OrderBy(w => w.NumberOfBuys)
+            .ThenBy(w => w.Articul);
+            foreach (var e in q)
+                Console.WriteLine(e);
+        }
+    }
+}
+
