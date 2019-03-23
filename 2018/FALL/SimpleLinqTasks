@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace LinqTasks
+{
+    public class LinqTasks
+    {
+        public List<string> FirstTask(int L, List<string> A)
+        {
+            return A
+            .TakeWhile(x => x.Count() != L)
+            .Where(x => Char.IsLetter(x[x.Length - 1]))
+            .OrderByDescending(x => x.Length)
+            .ThenBy(x => x)
+            .ToList();
+        }
+
+        public List<int> SecondTask(int K, List<int> A)
+        {
+            return A
+                .Take(K+1)
+                .Where(x => x % 2 == 0)
+                .ToList();
+        }
+
+        public List<char> ThirdTask(List<string> A)
+        {
+            return A
+                .Select(x => x[0])
+                .Reverse()
+                .ToList();
+        }
+
+        public List<string> FourthTask(List<int> A)
+        {
+            return A
+                .Where(x => x % 2 != 0)
+                .Select(x => x.ToString())
+                .OrderBy(x => x)
+                .ToList();
+        }
+    }
+}
