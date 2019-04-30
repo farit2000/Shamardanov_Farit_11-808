@@ -4,54 +4,40 @@ using System.Linq;
 
 namespace BTree
 {
-    /// Based on BTree chapter in "Introduction to Algorithms", by Thomas Cormen, Charles Leiserson, Ronald Rivest.
-    /// 
-    /// This implementation is not thread-safe, and user must handle thread-safety.
-    /// <typeparam name="TK">Type of BTree Key.</typeparam>
-    /// <typeparam name="TP">Type of BTree Pointer associated with each Key.</typeparam>
     /*
      * Алгоритм основан на основе книги "Введение в алгоритмы"
      * Tk - ключ, название фала который должен быть сравнимым
      * Tp - данные, связанные с ключом, в данном случае это путь к файлу    
     */   
-    public class BTree<TK, TP> where TK : IComparable<TK>
+    public class BTree<TKey, TPath> where TKey : IComparable<TKey>
     {
         public BTree(int degree)
         {
             if (degree < 2)
             {
-                throw new ArgumentException("BTree degree must be at least 2", "degree");
+                throw new ArgumentException("Степень должна быть больше или равна 2")
             }
 
-            this.Root = new Node<TK, TP>(degree);
+            this.Root = new Node<TKey, TPath>(degree);
             this.Degree = degree;
             this.Height = 1;
         }
         //корень дерева
-        public Node<TK, TP> Root { get; private set; }
+        public Node<TKey, TPath> Root { get; private set; }
 
         public int Degree { get; private set; }
 
         public int Height { get; private set; }
 
-        /// Searches a key in the BTree, returning the entry with it and with the pointer.
-        /// <param name="key">Key being searched.</param>
-        /// <returns>Entry for that key, null otherwise.</returns>
-
         // Метод поиска значения по ключу, метод возвращает имя файла и путь на этот файл
-        public Entry<TK, TP> Search(TK key)
+        public Entry<TKey, TPath> Search(TKey key)
         {
             return this.SearchInternal(this.Root, key);
         }
 
-        /// Inserts a new key associated with a pointer in the BTree. This
-        /// operation splits nodes as required to keep the BTree properties.
-        /// <param name="newKey">Key to be inserted.</param>
-        /// <param name="newPointer">Pointer to be associated with inserted key.</param>
-
         // Вставляет новый ключ, связанный с указателем в дерево. 
         //Эта операция разбивает узлы по мере необходимости, чтобы сохранить свойства В дерева.
-        public void Insert(TK newKey, TP newPointer)
+        public void Add(TKey newKey, TPath newPointer)
         {
             // в корне есть пробел
             if (!this.Root.HasReachedMaxEntries)
@@ -60,11 +46,9 @@ namespace BTree
                 return;
             }
 
-            // need to create new node and have it split
-
             //нужно создать новый узел и разделить его
-            Node<TK, TP> oldRoot = this.Root;
-            this.Root = new Node<TK, TP>(this.Degree);
+            Node<TKey, TPath> oldRoot = this.Root;
+            this.Root = new Node<TKey, TPath>(this.Degree);
             this.Root.Children.Add(oldRoot);
             this.SplitChild(this.Root, 0, oldRoot);
             this.InsertNonFull(this.Root, newKey, newPointer);
@@ -72,17 +56,11 @@ namespace BTree
             this.Height++;
         }
 
-        /// Deletes a key from the BTree. This operations moves keys and nodes
-        /// as required to keep the BTree properties.
-        /// <param name="keyToDelete">Key to be deleted.</param>
-
         //Удаляет ключ из сбалансированного дерева. Эта операция перемещает ключи и узлы,
         //необходимые для сохранения свойств B дерева.
-        public void Delete(TK keyToDelete)
+        public void Delete(TKey keyToDelete)
         {
             this.DeleteInternal(this.Root, keyToDelete);
-
-            // if root's last entry was moved to a child node, remove it
 
             // если последняя запись была перемещена на дочерний узел, мы ее удаляем ее
             if (this.Root.Entries.Count == 0 && !this.Root.IsLeaf)
@@ -92,16 +70,10 @@ namespace BTree
             }
         }
 
-        /// Internal method to delete keys from the BTree
-        /// <param name="node">Node to use to start search for the key.</param>
-        /// <param name="keyToDelete">Key to be deleted.</param>
-
         //Вспомогательный метод для удаления ключей из дерева
-        private void DeleteInternal(Node<TK, TP> node, TK keyToDelete)
+        private void DeleteInternal(Node<TKey, TPath> node, TKey keyToDelete)
         {
             int i = node.Entries.TakeWhile(entry => keyToDelete.CompareTo(entry.Key) > 0).Count();
-
-            // found key in node, so delete if from it
 
             //если найден ключ то мы его удаляем
             if (i < node.Entries.Count && node.Entries[i].Key.CompareTo(keyToDelete) == 0)
@@ -110,8 +82,6 @@ namespace BTree
                 return;
             }
 
-            // delete key from subtree
-
             //удаляем ключ из поддерева
             if (!node.IsLeaf)
             {
@@ -119,38 +89,25 @@ namespace BTree
             }
         }
 
-        /// Helper method that deletes a key from a subtree.
-        /// <param name="parentNode">Parent node used to start search for the key.</param>
-        /// <param name="keyToDelete">Key to be deleted.</param>
-        /// <param name="subtreeIndexInNode">Index of subtree node in the parent node.</param>
-
         //Вспомогательный метод, который удаляет ключ из поддерева.
-        private void DeleteKeyFromSubtree(Node<TK, TP> parentNode, TK keyToDelete, int subtreeIndexInNode)
+        private void DeleteKeyFromSubtree(Node<TKey, TPath> parentNode, TKey keyToDelete, int subtreeIndexInNode)
         {
-            Node<TK, TP> childNode = parentNode.Children[subtreeIndexInNode];
-
-            // node has reached min # of entries, and removing any from it will break the btree property,
-            // so this block makes sure that the "child" has at least "degree" # of nodes by moving an 
-            // entry from a sibling node or merging nodes
-
+            Node<TKey, TPath> childNode = parentNode.Children[subtreeIndexInNode];
             //узел достиг минимума, и удаление любого из них нарушит свойство В дерева,
             //поэтому этот блок гарантирует, что дочерний элемени имеет хотя бы степень не 0 узлов,
             //после перемещаем запись из узла-брата или объединяем узлы
             if (childNode.HasReachedMinEntries)
             {
                 int leftIndex = subtreeIndexInNode - 1;
-                Node<TK, TP> leftSibling = subtreeIndexInNode > 0 ? parentNode.Children[leftIndex] : null;
+                Node<TKey, TPath> leftSibling = subtreeIndexInNode > 0 ? parentNode.Children[leftIndex] : null;
 
                 int rightIndex = subtreeIndexInNode + 1;
-                Node<TK, TP> rightSibling = subtreeIndexInNode < parentNode.Children.Count - 1
+                Node<TKey, TPath> rightSibling = subtreeIndexInNode < parentNode.Children.Count - 1
                                                 ? parentNode.Children[rightIndex]
                                                 : null;
 
                 if (leftSibling != null && leftSibling.Entries.Count > this.Degree - 1)
                 {
-                    // left sibling has a node to spare, so this moves one node from left sibling 
-                    // into parent's node and one node from parent into this current node ("child")
-
                     //у левого брата есть запасной узел, поэтому он перемещает один узел из левого брата
                     //в родительский узел и один узел из родительского в этот текущий узел дочерний
                     childNode.Entries.Insert(0, parentNode.Entries[subtreeIndexInNode]);
@@ -165,9 +122,6 @@ namespace BTree
                 }
                 else if (rightSibling != null && rightSibling.Entries.Count > this.Degree - 1)
                 {
-                    // right sibling has a node to spare, so this moves one node from right sibling 
-                    // into parent's node and one node from parent into this current node ("child")
-
                     //у правого брата есть запасной узел, поэтому он перемещает один узел из правого брата
                     // в родительский узел и один узел из родительского в этот текущий узел
                     childNode.Entries.Add(parentNode.Entries[subtreeIndexInNode]);
@@ -182,8 +136,6 @@ namespace BTree
                 }
                 else
                 {
-                    // this block merges either left or right sibling into the current node "child"
-
                     //этот блок объединяет левого или правого брата в текущий узел
                     if (leftSibling != null)
                     {
@@ -216,40 +168,35 @@ namespace BTree
                     }
                 }
             }
-
-            // at this point, we know that "child" has at least "degree" nodes, so we can
-            // move on - this guarantees that if any node needs to be removed from it to
-            // guarantee BTree's property, we will be fine with that
+            //на данный момент мы знаем, что потомок имеет по крайней мере узлы не нулевой степени,
+            //поэтому мы можем двигаться дальше - это гарантирует, что если некоторый узел необходимо удалить из поддерева,
+            // чтобы гарантировать свойство B дерева.
             this.DeleteInternal(childNode, keyToDelete);
         }
 
-        /// Helper method that deletes key from a node that contains it, be this
-        /// node a leaf node or an internal node.
-        /// <param name="node">Node that contains the key.</param>
-        /// <param name="keyToDelete">Key to be deleted.</param>
-        /// <param name="keyIndexInNode">Index of key within the node.</param>
-        private void DeleteKeyFromNode(Node<TK, TP> node, TK keyToDelete, int keyIndexInNode)
+        //Вспомогательный метод, который удаляет ключ из узла, содержащего его,
+        // будь то этот узел листового узла или внутреннего узла.
+        private void DeleteKeyFromNode(Node<TKey, TPath> node, TKey keyToDelete, int keyIndexInNode)
         {
-            // if leaf, just remove it from the list of entries (we're guaranteed to have
-            // at least "degree" # of entries, to BTree property is maintained
+            //если лист, просто удалите его, чтобы сохранить свойство В дерева
             if (node.IsLeaf)
             {
                 node.Entries.RemoveAt(keyIndexInNode);
                 return;
             }
 
-            Node<TK, TP> predecessorChild = node.Children[keyIndexInNode];
+            Node<TKey, TPath> predecessorChild = node.Children[keyIndexInNode];
             if (predecessorChild.Entries.Count >= this.Degree)
             {
-                Entry<TK, TP> predecessor = this.DeletePredecessor(predecessorChild);
+                Entry<TKey, TPath> predecessor = this.DeletePredecessor(predecessorChild);
                 node.Entries[keyIndexInNode] = predecessor;
             }
             else
             {
-                Node<TK, TP> successorChild = node.Children[keyIndexInNode + 1];
+                Node<TKey, TPath> successorChild = node.Children[keyIndexInNode + 1];
                 if (successorChild.Entries.Count >= this.Degree)
                 {
-                    Entry<TK, TP> successor = this.DeleteSuccessor(predecessorChild);
+                    Entry<TKey, TPath> successor = this.DeleteSuccessor(predecessorChild);
                     node.Entries[keyIndexInNode] = successor;
                 }
                 else
@@ -265,13 +212,8 @@ namespace BTree
                 }
             }
         }
-
-        /// <summary>
-        /// Helper method that deletes a predecessor key (i.e. rightmost key) for a given node.
-        /// </summary>
-        /// <param name="node">Node for which the predecessor will be deleted.</param>
-        /// <returns>Predecessor entry that got deleted.</returns>
-        private Entry<TK, TP> DeletePredecessor(Node<TK, TP> node)
+        // Вспомогательный метод, который удаляет ключ предшественника (т.е. самый правый ключ) для данного узла.
+        private Entry<TKey, TPath> DeletePredecessor(Node<TKey, TPath> node)
         {
             if (node.IsLeaf)
             {
@@ -282,13 +224,8 @@ namespace BTree
 
             return this.DeletePredecessor(node.Children.Last());
         }
-
-        /// <summary>
-        /// Helper method that deletes a successor key (i.e. leftmost key) for a given node.
-        /// </summary>
-        /// <param name="node">Node for which the successor will be deleted.</param>
-        /// <returns>Successor entry that got deleted.</returns>
-        private Entry<TK, TP> DeleteSuccessor(Node<TK, TP> node)
+        // Вспомогательный метод, который удаляет ключ-преемник (т. е. самый левый ключ) для данного узла.
+        private Entry<TKey, TPath> DeleteSuccessor(Node<TKey, TPath> node)
         {
             if (node.IsLeaf)
             {
@@ -299,14 +236,8 @@ namespace BTree
 
             return this.DeletePredecessor(node.Children.First());
         }
-
-        /// <summary>
-        /// Helper method that search for a key in a given BTree.
-        /// </summary>
-        /// <param name="node">Node used to start the search.</param>
-        /// <param name="key">Key to be searched.</param>
-        /// <returns>Entry object with key information if found, null otherwise.</returns>
-        private Entry<TK, TP> SearchInternal(Node<TK, TP> node, TK key)
+        // Helper method that search for a key in a given BTree.
+        private Entry<TKey, TPath> SearchInternal(Node<TKey, TPath> node, TKey key)
         {
             int i = node.Entries.TakeWhile(entry => key.CompareTo(entry.Key) > 0).Count();
 
@@ -316,23 +247,17 @@ namespace BTree
             }
             return node.IsLeaf ? null : this.SearchInternal(node.Children[i], key);
         }
-
-        /// <summary>
-        /// Helper method that splits a full node into two nodes.
-        /// </summary>
-        /// <param name="parentNode">Parent node that contains node to be split.</param>
-        /// <param name="nodeToBeSplitIndex">Index of the node to be split within parent.</param>
-        /// <param name="nodeToBeSplit">Node to be split.</param>
-        private void SplitChild(Node<TK, TP> parentNode, int nodeToBeSplitIndex, Node<TK, TP> nodeToBeSplit)
+        // Вспомогательный метод, который разбивает весь узел на два узла.
+        private void SplitChild(Node<TKey, TPath> parentNode, int nodeToBeSplitIndex, Node<TKey, TPath> nodeToBeSplit)
         {
-            var newNode = new Node<TK, TP>(this.Degree);
+            var newNode = new Node<TKey, TPath>(this.Degree);
 
             parentNode.Entries.Insert(nodeToBeSplitIndex, nodeToBeSplit.Entries[this.Degree - 1]);
             parentNode.Children.Insert(nodeToBeSplitIndex + 1, newNode);
 
             newNode.Entries.AddRange(nodeToBeSplit.Entries.GetRange(this.Degree, this.Degree - 1));
 
-            // remove also Entries[this.Degree - 1], which is the one to move up to the parent
+            //удаляем запись степень - 1, который является единственной, для перехода к родителю
             nodeToBeSplit.Entries.RemoveRange(this.Degree - 1, this.Degree);
 
             if (!nodeToBeSplit.IsLeaf)
@@ -342,19 +267,19 @@ namespace BTree
             }
         }
 
-        private void InsertNonFull(Node<TK, TP> node, TK newKey, TP newPointer)
+        private void InsertNonFull(Node<TKey, TPath> node, TKey newKey, TPath newPointer)
         {
             int positionToInsert = node.Entries.TakeWhile(entry => newKey.CompareTo(entry.Key) >= 0).Count();
 
-            // leaf node
+            // конечный узел
             if (node.IsLeaf)
             {
-                node.Entries.Insert(positionToInsert, new Entry<TK, TP>() { Key = newKey, Pointer = newPointer });
+                node.Entries.Insert(positionToInsert, new Entry<TKey, TPath>() { Key = newKey, Pointer = newPointer });
                 return;
             }
 
-            // non-leaf
-            Node<TK, TP> child = node.Children[positionToInsert];
+            // неконечный узел
+            Node<TKey, TPath> child = node.Children[positionToInsert];
             if (child.HasReachedMaxEntries)
             {
                 this.SplitChild(node, positionToInsert, child);

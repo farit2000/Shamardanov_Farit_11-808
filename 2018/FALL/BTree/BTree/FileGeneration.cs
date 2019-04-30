@@ -21,7 +21,7 @@ namespace BTree
                     // Add some information to the file.
                     fs.Write(info, 0, info.Length);
                 }
-                Btree.Insert(name, path);
+                Btree.Add(name, path);
             }
         }
 
@@ -40,7 +40,7 @@ namespace BTree
                 // Add some information to the file.
                 fs.Write(info, 0, info.Length);
             }
-            Btree.Insert(name, path);
+            Btree.Add(name, path);
         }
 
         public void Delete(string fileName)
