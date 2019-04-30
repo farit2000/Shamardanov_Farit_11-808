@@ -15,7 +15,7 @@ namespace BTree
         {
             if (degree < 2)
             {
-                throw new ArgumentException("Степень должна быть больше или равна 2")
+                throw new ArgumentException("Степень должна быть больше или равна 2");
             }
 
             this.Root = new Node<TKey, TPath>(degree);
