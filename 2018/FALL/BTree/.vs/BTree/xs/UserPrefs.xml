@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{277E2302-78A8-4ED8-9450-9472033CC381}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="BTree/NUnitTestClass.cs">
+    <Files>
+      <File FileName="BTree/Program.cs" Line="31" Column="17" />
+      <File FileName="BTree/BTree.cs" Line="52" Column="66" />
+      <File FileName="BTree/Node.cs" Line="5" Column="30" />
+      <File FileName="BTree/Entry.cs" Line="5" Column="33" />
+      <File FileName="BTree/FileGeneration.cs" Line="50" Column="20" />
+      <File FileName="BTree/Test.cs" Line="12" Column="1" />
+      <File FileName="BTree/NUnitTestClass.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="BTree" expanded="True">
+            <Node name="BTree" expanded="True">
+              <Node name="Properties" expanded="True" />
+              <Node name="NUnitTestClass.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.BTree PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
