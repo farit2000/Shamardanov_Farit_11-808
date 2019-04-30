@@ -236,7 +236,7 @@ namespace BTree
 
             return this.DeletePredecessor(node.Children.First());
         }
-        // Helper method that search for a key in a given BTree.
+        //Вспомогательный метод, который ищет ключ в данном B дереве.
         private Entry<TKey, TPath> SearchInternal(Node<TKey, TPath> node, TKey key)
         {
             int i = node.Entries.TakeWhile(entry => key.CompareTo(entry.Key) > 0).Count();
