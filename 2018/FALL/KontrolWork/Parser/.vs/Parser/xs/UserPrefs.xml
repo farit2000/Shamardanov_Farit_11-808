@@ -1,14 +1,14 @@
-﻿<Properties StartupConfiguration="{2C4FBE25-1D2A-4894-BA7E-0E91F5DC9484}|Default">
-  <MonoDevelop.Ide.Workbench ActiveDocument="KontrolWork/Program.cs">
+﻿<Properties StartupConfiguration="{53AAC77F-A1EA-4D94-94B8-10B905489D62}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Parser/Program.cs">
     <Files>
-      <File FileName="KontrolWork/Program.cs" Line="101" Column="28" />
+      <File FileName="Parser/Program.cs" Line="5" Column="23" />
+      <File FileName="Parser/EmptyJSONFile.json" Line="7" Column="63" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="KontrolWork" expanded="True">
-            <Node name="KontrolWork" expanded="True">
-              <Node name="Students" expanded="True" />
+          <Node name="Parser" expanded="True">
+            <Node name="Parser" expanded="True">
               <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
@@ -16,8 +16,8 @@
       </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.KontrolWork FirstBuild="True" PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.Parser PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
