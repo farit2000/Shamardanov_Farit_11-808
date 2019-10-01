@@ -9,6 +9,13 @@ namespace Incapsulation.Failures
 
     public class Common
     {
+        public static int IsFailureSerious(int failureType)
+        {
+            if (failureType%2==0) return 1;
+            return 0;
+        }
+
+
         public static int Earlier(object[] v, int day, int month, int year)
         {
             int vYear = (int)v[2];
@@ -19,11 +26,6 @@ namespace Incapsulation.Failures
             if (vMonth < month) return 1;
             if (vMonth > month) return 0;
             if (vDay < day) return 1;
-            return 0;
-        }
-        public static int IsFailureSerious(int failureType)
-        {
-            if (failureType % 2 == 0) return 1;
             return 0;
         }
     }
@@ -47,15 +49,15 @@ namespace Incapsulation.Failures
             int day,
             int month,
             int year,
-            int[] failureTypes,
-            int[] deviceId,
+            int[] failureTypes, 
+            int[] deviceId, 
             object[][] times,
             List<Dictionary<string, object>> devices)
         {
 
             var problematicDevices = new HashSet<int>();
             for (int i = 0; i < failureTypes.Length; i++)
-                if (Common.IsFailureSerious(failureTypes[i]) == 1 && Common.Earlier(times[i], day, month, year) == 1)
+                if (Common.IsFailureSerious(failureTypes[i])==1 && Common.Earlier(times[i], day, month, year)==1)
                     problematicDevices.Add(deviceId[i]);
 
             var result = new List<string>();
@@ -65,52 +67,6 @@ namespace Incapsulation.Failures
 
             return result;
         }
-        public static int IsFailureSerious(int failureType)
-        {
-            if (failureType % 2 == 0) return 1;
-            return 0;
-        }
-
-        private static List<string> FindDevicesFailedBeforeDate(DateTime dateTime, Device device)
-        {
-            int day = dateTime.Day;
-            int month = dateTime.Month;
-            int year = dateTime.Year;
-            int[] failureTypes = device.FailureTypes;
-            int[] deviceId = device.DeviceId;
-            object[][] times = device.Times;
-            List<Dictionary<string, object>> devices = device.Devices;
-            var problematicDevices = new HashSet<int>();
-            for (int i = 0; i < failureTypes.Length; i++)
-                if (IsFailureSerious(failureTypes[i]) == 1 && Common.Earlier(times[i], day, month, year) == 1)
-                    problematicDevices.Add(deviceId[i]);
-            var result = new List<string>();
-            foreach (var e in devices)
-                if (problematicDevices.Contains((int)e["DeviceId"]))
-                    result.Add(e["Name"] as string);
-            return result;
-        }
-
-        class Device
-        {
-            public int[] FailureTypes;
-            public int[] DeviceId;
-            public object[][] Times;
-            public List<Dictionary<string, object>> Devices;
-            public Device(int[] failureTypes, int[] deviceId, object[][] times, List<Dictionary<string, object>> devices)
-            {
-                this.FailureTypes = failureTypes;
-                this.DeviceId = deviceId;
-                this.Times = times;
-                this.Devices= devices;
-            }
-        }
-        enum FailureType : int
-        {
-            Unexpectedshutdown,
-            ShortNonResponding,
-            HardwareFailures,
-            ConnectionProblems
-        }
+           
     }
 }
