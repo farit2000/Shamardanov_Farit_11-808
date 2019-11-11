@@ -1,0 +1,11 @@
+C:\Users\farit\Documents\Shamardanov_Farit_11-808\2019\FALL\HOMEWORK\ImgGetter\bin\Debug\netcoreapp2.2\ImgGetter.deps.json
+C:\Users\farit\Documents\Shamardanov_Farit_11-808\2019\FALL\HOMEWORK\ImgGetter\bin\Debug\netcoreapp2.2\ImgGetter.runtimeconfig.json
+C:\Users\farit\Documents\Shamardanov_Farit_11-808\2019\FALL\HOMEWORK\ImgGetter\bin\Debug\netcoreapp2.2\ImgGetter.runtimeconfig.dev.json
+C:\Users\farit\Documents\Shamardanov_Farit_11-808\2019\FALL\HOMEWORK\ImgGetter\bin\Debug\netcoreapp2.2\ImgGetter.dll
+C:\Users\farit\Documents\Shamardanov_Farit_11-808\2019\FALL\HOMEWORK\ImgGetter\obj\Debug\netcoreapp2.2\ImgGetter.csprojAssemblyReference.cache
+C:\Users\farit\Documents\Shamardanov_Farit_11-808\2019\FALL\HOMEWORK\ImgGetter\obj\Debug\netcoreapp2.2\ImgGetter.csproj.CoreCompileInputs.cache
+C:\Users\farit\Documents\Shamardanov_Farit_11-808\2019\FALL\HOMEWORK\ImgGetter\obj\Debug\netcoreapp2.2\ImgGetter.AssemblyInfoInputs.cache
+C:\Users\farit\Documents\Shamardanov_Farit_11-808\2019\FALL\HOMEWORK\ImgGetter\obj\Debug\netcoreapp2.2\ImgGetter.AssemblyInfo.cs
+C:\Users\farit\Documents\Shamardanov_Farit_11-808\2019\FALL\HOMEWORK\ImgGetter\bin\Debug\netcoreapp2.2\ImgGetter.pdb
+C:\Users\farit\Documents\Shamardanov_Farit_11-808\2019\FALL\HOMEWORK\ImgGetter\obj\Debug\netcoreapp2.2\ImgGetter.dll
+C:\Users\farit\Documents\Shamardanov_Farit_11-808\2019\FALL\HOMEWORK\ImgGetter\obj\Debug\netcoreapp2.2\ImgGetter.pdb
