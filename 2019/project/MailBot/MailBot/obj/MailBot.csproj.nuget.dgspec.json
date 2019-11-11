@@ -1,0 +1,61 @@
+{
+  "format": 1,
+  "restore": {
+    "/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2019/project/MailBot/MailBot/MailBot.csproj": {}
+  },
+  "projects": {
+    "/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2019/project/MailBot/MailBot/MailBot.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2019/project/MailBot/MailBot/MailBot.csproj",
+        "projectName": "MailBot",
+        "projectPath": "/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2019/project/MailBot/MailBot/MailBot.csproj",
+        "packagesPath": "/Users/faritsamardanov/.nuget/packages/",
+        "outputPath": "/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2019/project/MailBot/MailBot/obj/",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "/Users/faritsamardanov/.config/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.0": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.0": {
+          "dependencies": {
+            "Telegram.Bot": {
+              "target": "Package",
+              "version": "[15.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,14 @@
+/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2019/project/MailBot/MailBot/obj/Debug/netcoreapp3.0/MailBot.csprojAssemblyReference.cache
+/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2019/project/MailBot/MailBot/obj/Debug/netcoreapp3.0/MailBot.AssemblyInfoInputs.cache
+/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2019/project/MailBot/MailBot/obj/Debug/netcoreapp3.0/MailBot.AssemblyInfo.cs
+/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2019/project/MailBot/MailBot/bin/Debug/netcoreapp3.0/MailBot
+/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2019/project/MailBot/MailBot/bin/Debug/netcoreapp3.0/MailBot.deps.json
+/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2019/project/MailBot/MailBot/bin/Debug/netcoreapp3.0/MailBot.runtimeconfig.json
+/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2019/project/MailBot/MailBot/bin/Debug/netcoreapp3.0/MailBot.runtimeconfig.dev.json
+/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2019/project/MailBot/MailBot/bin/Debug/netcoreapp3.0/MailBot.dll
+/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2019/project/MailBot/MailBot/bin/Debug/netcoreapp3.0/MailBot.pdb
+/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2019/project/MailBot/MailBot/bin/Debug/netcoreapp3.0/Newtonsoft.Json.dll
+/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2019/project/MailBot/MailBot/bin/Debug/netcoreapp3.0/Telegram.Bot.dll
+/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2019/project/MailBot/MailBot/obj/Debug/netcoreapp3.0/MailBot.csproj.CopyComplete
+/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2019/project/MailBot/MailBot/obj/Debug/netcoreapp3.0/MailBot.dll
+/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2019/project/MailBot/MailBot/obj/Debug/netcoreapp3.0/MailBot.pdb
