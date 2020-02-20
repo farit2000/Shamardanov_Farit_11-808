@@ -1,9 +1,0 @@
-/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2018/FALL/KontrolWork/Parser/Parser/bin/Debug/Parser.exe
-/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2018/FALL/KontrolWork/Parser/Parser/bin/Debug/Parser.pdb
-/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2018/FALL/KontrolWork/Parser/Parser/bin/Debug/Newtonsoft.Json.dll
-/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2018/FALL/KontrolWork/Parser/Parser/bin/Debug/Newtonsoft.Json.xml
-/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2018/FALL/KontrolWork/Parser/Parser/obj/x86/Debug/Parser.csprojAssemblyReference.cache
-/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2018/FALL/KontrolWork/Parser/Parser/obj/x86/Debug/Parser.csproj.CoreCompileInputs.cache
-/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2018/FALL/KontrolWork/Parser/Parser/obj/x86/Debug/Parser.csproj.CopyComplete
-/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2018/FALL/KontrolWork/Parser/Parser/obj/x86/Debug/Parser.exe
-/Users/faritsamardanov/Documents/Shamardanov_Farit_11-808/2018/FALL/KontrolWork/Parser/Parser/obj/x86/Debug/Parser.pdb

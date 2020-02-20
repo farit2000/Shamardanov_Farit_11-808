@@ -1,6 +1,0 @@
-/Users/faritsamardanov/Documents/Projects/BTree/BTree/obj/x86/Debug/BTree.csprojAssemblyReference.cache
-/Users/faritsamardanov/Documents/Projects/BTree/BTree/obj/x86/Debug/BTree.csproj.CoreCompileInputs.cache
-/Users/faritsamardanov/Documents/Projects/BTree/BTree/bin/Debug/BTree.exe
-/Users/faritsamardanov/Documents/Projects/BTree/BTree/bin/Debug/BTree.pdb
-/Users/faritsamardanov/Documents/Projects/BTree/BTree/obj/x86/Debug/BTree.exe
-/Users/faritsamardanov/Documents/Projects/BTree/BTree/obj/x86/Debug/BTree.pdb
