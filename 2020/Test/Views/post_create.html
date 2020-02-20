@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+<form action="/home/create_post" method="post"  enctype="multipart/form-data">
+    <label for="name">Author name</label>
+    <input id="name" name="name" />
+    <br/>
+    <label for="post">Posts' text</label>
+    <textarea id="post" name="post"></textarea>
+    <br/>
+    <label for="attachment">Photo</label>
+    <input id="attachment" name="image" type="file" accept="image/*"/>
+    <br/>
+    <input type="submit"/>
+</form>
+</body>
+</html>
