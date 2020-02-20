@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="68dcb40d-d76e-4fbe-80ae-5b464f695f4e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Controllers/HomeController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/all_posts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/post_create.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Views/post_edit.html" afterDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/BTree/.vs/BTree/xs/sqlite3/db.lock" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/BTree/.vs/BTree/xs/sqlite3/storage.ide" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/BTree/BTree.sln" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/BTree/BTree/BTree.cs" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/BTree/BTree/BTree.csproj" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/BTree/BTree/Entry.cs" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/BTree/BTree/FileGeneration.cs" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/BTree/BTree/NUnitTestClass.cs" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/BTree/BTree/Node.cs" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/BTree/BTree/Program.cs" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/BTree/BTree/Properties/AssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/BTree/BTree/bin/Debug/BTree.pdb" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/BTree/BTree/obj/x86/Debug/BTree.csproj.CoreCompileInputs.cache" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/BTree/BTree/obj/x86/Debug/BTree.csprojAssemblyReference.cache" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/BTree/BTree/obj/x86/Debug/BTree.pdb" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/Graph/Graph.sln" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/Graph/Graph/App.config" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/Graph/Graph/Form1.Designer.cs" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/Graph/Graph/Form1.cs" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/Graph/Graph/Form1.resx" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/Graph/Graph/Graph.csproj" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/Graph/Graph/LinkedListExtension.cs" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/Graph/Graph/Program.cs" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/Graph/Graph/Properties/AssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/Graph/Graph/Properties/Resources.Designer.cs" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/Graph/Graph/Properties/Resources.resx" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/Graph/Graph/Properties/Settings.Designer.cs" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/Graph/Graph/Properties/Settings.settings" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/Graph/Graph/SmoothSort.cs" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/Graph/Graph/bin/Debug/Graph.exe.config" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/Graph/Graph/bin/Debug/Graph.pdb" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/Graph/Graph/obj/Debug/DesignTimeResolveAssemblyReferences.cache" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/Graph/Graph/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/Graph/Graph/obj/Debug/Graph.Form1.resources" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/Graph/Graph/obj/Debug/Graph.Properties.Resources.resources" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/Graph/Graph/obj/Debug/Graph.csproj.CoreCompileInputs.cache" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/Graph/Graph/obj/Debug/Graph.csproj.GenerateResource.cache" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/Graph/Graph/obj/Debug/Graph.csprojAssemblyReference.cache" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/Graph/Graph/obj/Debug/Graph.pdb" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/KontrolWork/.vs/KontrolWork/xs/sqlite3/db.lock" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/KontrolWork/.vs/KontrolWork/xs/sqlite3/storage.ide" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/KontrolWork/KontrolWork.sln" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/KontrolWork/KontrolWork/KontrolWork.csproj" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/KontrolWork/KontrolWork/Program.cs" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/KontrolWork/KontrolWork/Properties/AssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/KontrolWork/KontrolWork/obj/x86/Debug/KontrolWork.csprojAssemblyReference.cache" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/KontrolWork/Parser/.vs/Parser/xs/sqlite3/db.lock" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/KontrolWork/Parser/.vs/Parser/xs/sqlite3/storage.ide" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/KontrolWork/Parser/Parser.sln" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/KontrolWork/Parser/Parser/Parser.csproj" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/KontrolWork/Parser/Parser/Program.cs" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/KontrolWork/Parser/Parser/Properties/AssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/KontrolWork/Parser/Parser/bin/Debug/Parser.pdb" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/KontrolWork/Parser/Parser/obj/x86/Debug/Parser.csproj.CopyComplete" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/KontrolWork/Parser/Parser/obj/x86/Debug/Parser.csproj.CoreCompileInputs.cache" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/KontrolWork/Parser/Parser/obj/x86/Debug/Parser.csprojAssemblyReference.cache" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/KontrolWork/Parser/Parser/obj/x86/Debug/Parser.pdb" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/KontrolWork/Parser/Parser/packages.config" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/KontrolWork/Parser/packages/Newtonsoft.Json.12.0.2/.signature.p7s" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/KontrolWork/Parser/packages/Newtonsoft.Json.12.0.2/LICENSE.md" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/KontrolWork/Parser/packages/Newtonsoft.Json.12.0.2/Newtonsoft.Json.12.0.2.nupkg" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/MISS/KontrollWork.cs" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/PR/digger.rar" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/SEM/SEM_1.cs" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/SEM/SEM_2.cs" beforeDir="false" />
+      <change beforePath="$USER_HOME$/2018/FALL/SEM/SEM_4.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/.vs/ImgGetter/DesignTimeBuild/.dtbcache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/.vs/ImgGetter/v16/.suo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/.vs/ImgGetter/v16/Server/sqlite3/db.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/.vs/ImgGetter/v16/Server/sqlite3/storage.ide" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/.vs/ImgGetter/v16/TestStore/0/000-0000.testlog" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/.vs/ImgGetter/v16/TestStore/0/testlog.manifest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/ImgGetter.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/ImgGetter.sln" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/bin/Debug/netcoreapp2.2/ImgGetter.deps.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/bin/Debug/netcoreapp2.2/ImgGetter.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/bin/Debug/netcoreapp2.2/ImgGetter.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/bin/Debug/netcoreapp2.2/ImgGetter.runtimeconfig.dev.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/bin/Debug/netcoreapp2.2/ImgGetter.runtimeconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/obj/Debug/netcoreapp2.2/ImgGetter.AssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/obj/Debug/netcoreapp2.2/ImgGetter.AssemblyInfoInputs.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/obj/Debug/netcoreapp2.2/ImgGetter.assets.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/obj/Debug/netcoreapp2.2/ImgGetter.csproj.CoreCompileInputs.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/obj/Debug/netcoreapp2.2/ImgGetter.csproj.FileListAbsolute.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/obj/Debug/netcoreapp2.2/ImgGetter.csprojAssemblyReference.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/obj/Debug/netcoreapp2.2/ImgGetter.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/obj/Debug/netcoreapp2.2/ImgGetter.pdb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/obj/ImgGetter.csproj.nuget.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/obj/ImgGetter.csproj.nuget.dgspec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/obj/ImgGetter.csproj.nuget.g.props" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/obj/ImgGetter.csproj.nuget.g.targets" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/ImgGetter/obj/project.assets.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/HOMEWORK/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/Ulearn/Incapsulation.EnterpriseTask.csproj/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/Ulearn/Incapsulation.EnterpriseTask.csproj/Properties/AssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/Ulearn/Incapsulation.EnterpriseTask.csproj/ReportMaker.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/Ulearn/Incapsulation.EnterpriseTask.csproj/ReportMaker_Tests.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/Ulearn/Incapsulation.EnterpriseTask.csproj/app.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/Ulearn/Incapsulation.EnterpriseTask.csproj/nunit.framework.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/Ulearn/Incapsulation.EnterpriseTask.csproj/nunitlite.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/Ulearn/Incapsulation.Failures.csproj/.vs/Incapsulation.Failures/v16/.suo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/Ulearn/Incapsulation.Failures.csproj/.vs/Incapsulation.Failures/v16/Server/sqlite3/db.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/Ulearn/Incapsulation.Failures.csproj/.vs/Incapsulation.Failures/v16/Server/sqlite3/storage.ide" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/Ulearn/Incapsulation.Failures.csproj/Incapsulation.Failures.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/Ulearn/Incapsulation.Failures.csproj/Program.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/Ulearn/Incapsulation.Failures.csproj/Properties/AssemblyInfo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/Ulearn/Incapsulation.Failures.csproj/ReportMaker.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/Ulearn/Incapsulation.Failures.csproj/ReportMaker_Tests.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/Ulearn/Incapsulation.Failures.csproj/app.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/Ulearn/Incapsulation.Failures.csproj/nunit.framework.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/Ulearn/Incapsulation.Failures.csproj/nunitlite.dll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/Ulearn/Incapsulation.Failures.csproj/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/Ulearn/Incapsulation.Failures.csproj/obj/Debug/Incapsulation.Failures.csproj.CoreCompileInputs.cache" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../FALL/Ulearn/Incapsulation.Failures.csproj/obj/Debug/Incapsulation.Failures.csprojAssemblyReference.cache" beforeDir="false" />
+      <change beforePath="$USER_HOME$/README.md" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$USER_HOME$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Controllers/HomeController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Startup.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/appsettings.Development.json" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Test.csproj" />
+        <option value="$PROJECT_DIR$/Views/index.html" />
+        <option value="$PROJECT_DIR$/Views/post_create.html" />
+        <option value="$PROJECT_DIR$/Views/post_edit.html" />
+        <option value="$PROJECT_DIR$/Startup.cs" />
+        <option value="$PROJECT_DIR$/Views/all_posts.html" />
+        <option value="$PROJECT_DIR$/Controllers/HomeController.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1Xylb9djy2oeYCroq0F6yA8m4GU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RunManager" selected=".NET Launch Settings Profile.Test">
+    <configuration name="Test" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Test.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value=".NETCoreApp,Version=v3.1" />
+      <option name="LAUNCH_PROFILE_NAME" value="Test" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test: IIS Express" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Test.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value=".NETCoreApp,Version=v3.1" />
+      <option name="LAUNCH_PROFILE_NAME" value="IIS Express" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="68dcb40d-d76e-4fbe-80ae-5b464f695f4e" name="Default Changelist" comment="" />
+      <created>1582026284951</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1582026284951</updated>
+      <workItem from="1582026290159" duration="18032000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1582143827956">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="184" y="112" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1582143827956" />
+    <state width="699" height="195" key="GridCell.Tab.0.bottom" timestamp="1582186865284">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="699" height="195" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1582186865284" />
+    <state width="699" height="195" key="GridCell.Tab.0.bottom/0.23.1440.808@0.23.1440.808" timestamp="1582186400724" />
+    <state width="699" height="195" key="GridCell.Tab.0.bottom/0.23.1440.811@0.23.1440.811" timestamp="1582106515292" />
+    <state width="699" height="195" key="GridCell.Tab.0.center" timestamp="1582186865283">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="699" height="195" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1582186865283" />
+    <state width="699" height="195" key="GridCell.Tab.0.center/0.23.1440.808@0.23.1440.808" timestamp="1582186400718" />
+    <state width="699" height="195" key="GridCell.Tab.0.center/0.23.1440.811@0.23.1440.811" timestamp="1582106515274" />
+    <state width="699" height="195" key="GridCell.Tab.0.left" timestamp="1582186865282">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="699" height="195" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1582186865282" />
+    <state width="699" height="195" key="GridCell.Tab.0.left/0.23.1440.808@0.23.1440.808" timestamp="1582186400718" />
+    <state width="699" height="195" key="GridCell.Tab.0.left/0.23.1440.811@0.23.1440.811" timestamp="1582106515268" />
+    <state width="699" height="195" key="GridCell.Tab.0.right" timestamp="1582186865284">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="699" height="195" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1582186865284" />
+    <state width="699" height="195" key="GridCell.Tab.0.right/0.23.1440.808@0.23.1440.808" timestamp="1582186400724" />
+    <state width="699" height="195" key="GridCell.Tab.0.right/0.23.1440.811@0.23.1440.811" timestamp="1582106515291" />
+    <state width="699" height="303" key="GridCell.Tab.1.bottom" timestamp="1582184297134">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="699" height="303" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1582184297134" />
+    <state width="699" height="303" key="GridCell.Tab.1.center" timestamp="1582184297132">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="699" height="303" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1582184297132" />
+    <state width="699" height="303" key="GridCell.Tab.1.left" timestamp="1582184297131">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="699" height="303" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1582184297131" />
+    <state width="699" height="303" key="GridCell.Tab.1.right" timestamp="1582184297133">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="699" height="303" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1582184297133" />
+    <state width="699" height="303" key="GridCell.Tab.2.bottom" timestamp="1582184297138">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="699" height="303" key="GridCell.Tab.2.bottom/0.0.1440.900@0.0.1440.900" timestamp="1582184297138" />
+    <state width="699" height="303" key="GridCell.Tab.2.center" timestamp="1582184297136">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="699" height="303" key="GridCell.Tab.2.center/0.0.1440.900@0.0.1440.900" timestamp="1582184297136" />
+    <state width="699" height="303" key="GridCell.Tab.2.left" timestamp="1582184297135">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="699" height="303" key="GridCell.Tab.2.left/0.0.1440.900@0.0.1440.900" timestamp="1582184297135" />
+    <state width="699" height="303" key="GridCell.Tab.2.right" timestamp="1582184297137">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="699" height="303" key="GridCell.Tab.2.right/0.0.1440.900@0.0.1440.900" timestamp="1582184297137" />
+    <state width="699" height="303" key="GridCell.Tab.3.bottom" timestamp="1582184297141">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="699" height="303" key="GridCell.Tab.3.bottom/0.0.1440.900@0.0.1440.900" timestamp="1582184297141" />
+    <state width="699" height="303" key="GridCell.Tab.3.center" timestamp="1582184297140">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="699" height="303" key="GridCell.Tab.3.center/0.0.1440.900@0.0.1440.900" timestamp="1582184297140" />
+    <state width="699" height="303" key="GridCell.Tab.3.left" timestamp="1582184297139">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="699" height="303" key="GridCell.Tab.3.left/0.0.1440.900@0.0.1440.900" timestamp="1582184297139" />
+    <state width="699" height="303" key="GridCell.Tab.3.right" timestamp="1582184297141">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="699" height="303" key="GridCell.Tab.3.right/0.0.1440.900@0.0.1440.900" timestamp="1582184297141" />
+    <state width="699" height="303" key="GridCell.Tab.4.bottom" timestamp="1582184297145">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="699" height="303" key="GridCell.Tab.4.bottom/0.0.1440.900@0.0.1440.900" timestamp="1582184297145" />
+    <state width="699" height="303" key="GridCell.Tab.4.center" timestamp="1582184297143">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="699" height="303" key="GridCell.Tab.4.center/0.0.1440.900@0.0.1440.900" timestamp="1582184297143" />
+    <state width="699" height="303" key="GridCell.Tab.4.left" timestamp="1582184297142">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="699" height="303" key="GridCell.Tab.4.left/0.0.1440.900@0.0.1440.900" timestamp="1582184297142" />
+    <state width="699" height="303" key="GridCell.Tab.4.right" timestamp="1582184297144">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="699" height="303" key="GridCell.Tab.4.right/0.0.1440.900@0.0.1440.900" timestamp="1582184297144" />
+    <state x="221" y="89" key="SettingsEditor" timestamp="1582187520131">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="221" y="89" key="SettingsEditor/0.0.1440.900@0.0.1440.900" timestamp="1582187520131" />
+    <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1582183486622">
+      <screen x="0" y="23" width="1440" height="808" />
+    </state>
+    <state x="100" y="100" width="1240" height="700" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.23.1440.808@0.23.1440.808" timestamp="1582183486622" />
+    <state x="301" y="37" width="837" height="825" key="find.popup" timestamp="1582146017304">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="301" y="37" width="837" height="825" key="find.popup/0.0.1440.900@0.0.1440.900" timestamp="1582146017304" />
+  </component>
+</project>
