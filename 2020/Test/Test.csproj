@@ -5,10 +5,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Files" />
-    </ItemGroup>
-
-    <ItemGroup>
       <None Remove="Files\1.txt" />
       <None Remove="Files\3.txt" />
     </ItemGroup>

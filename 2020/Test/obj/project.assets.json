@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/faritshamardanov/Desktop/Test/Test.csproj",
+      "projectUniqueName": "/Users/faritshamardanov/Documents/Shamardanov_Farit_11-808/2020/Test/Test.csproj",
       "projectName": "Test",
-      "projectPath": "/Users/faritshamardanov/Desktop/Test/Test.csproj",
+      "projectPath": "/Users/faritshamardanov/Documents/Shamardanov_Farit_11-808/2020/Test/Test.csproj",
       "packagesPath": "/Users/faritshamardanov/.nuget/packages/",
-      "outputPath": "/Users/faritshamardanov/Desktop/Test/obj/",
+      "outputPath": "/Users/faritshamardanov/Documents/Shamardanov_Farit_11-808/2020/Test/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/faritshamardanov/.config/NuGet/NuGet.Config"

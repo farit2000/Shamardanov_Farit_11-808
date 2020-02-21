@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Create new comment</title>
+</head>
+<body>
+<form action="/create_comment/{{post_id}}" method="post"  enctype="multipart/form-data">
+    <label for="name">Comment author name</label>
+    <input id="name" name="name" />
+    <br/>
+    <label for="comment">Comments' text</label>
+    <textarea id="comment" name="comment"></textarea>
+    <br/>
+    <input type="submit"/>
+</form>
+</body>
+</html>

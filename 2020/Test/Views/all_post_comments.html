@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All {{post_id}} comments</title>
+</head>
+<body>
+<div id="{{post_id}}">
+    <h1>{{author_name}}</h1>
+    <p>{{comment}}</p>
+    <br/>
+    <form method="get" action="/edit_post/{{post_id}}">
+        <button type="submit">Edit</button>
+    </form>
+    <form method="post" action="/remove_post/{{post_id}}">
+        <button type="submit">Remove</button>
+    </form>
+</div>
+<br>
+<hr/>
+</body>
+</html>

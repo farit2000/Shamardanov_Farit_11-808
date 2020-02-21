@@ -16,6 +16,12 @@
         <form method="post" action="/remove_post/{{post_id}}">
             <button type="submit">Remove</button>
         </form>
+        <form method="get" action="/add_comment/{{post_id}}">
+            <button type="submit">Add comment</button>
+        </form>
+        <form method="get" action="/show_comments/{{post_id}}">
+            <button type="submit">Show comments</button>
+        </form>
     </div>
     <br>
     <hr/>
