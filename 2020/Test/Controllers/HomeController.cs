@@ -35,8 +35,10 @@ namespace Test.Controllers
             }
             else if (context.Request.Method == "POST")
             {
-                await _postStorage.Save(context);
-                await GetAllPosts(context);
+                var saveResult = await _postStorage.Save(context);
+                if (saveResult.Item1 is true)
+                    await GetAllPosts(context);
+                await context.Response.WriteAsync(saveResult.Item2);
             }
         }
         //general page methon
@@ -89,8 +91,10 @@ namespace Test.Controllers
             string path = context.Request.Path.Value;
             if (context.Request.Method == "POST")
             {
-                _postStorage.Edit(context);
-                await GetAllPosts(context);
+                var editResult = _postStorage.Edit(context);
+                if(editResult.Item1 is true)
+                    await GetAllPosts(context);
+                await context.Response.WriteAsync(editResult.Item2);
             }
             else if (context.Request.Method == "GET")
             {
@@ -124,8 +128,11 @@ namespace Test.Controllers
             var postId = context.Request.Path.Value.Split("/").Last();
             if (context.Request.Method == "POST")
             {
-                await _commentStorage.Save(context);
-                await GetAllPosts(context);
+                var saveResult = await _commentStorage.Save(context);
+                if (saveResult.Item1 is true)
+                    await GetAllPosts(context);
+                else
+                    await context.Response.WriteAsync(saveResult.Item2);
             }
             else if (context.Request.Method == "GET")
             {

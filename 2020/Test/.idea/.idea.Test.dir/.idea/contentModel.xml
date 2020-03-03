@@ -10,21 +10,8 @@
       </e>
       <e p="Files" t="Include">
         <e p="1.jpeg" t="Include" />
-        <e p="2.jpeg" t="Include" />
-        <e p="2.txt" t="Include" />
-        <e p="3.jpeg" t="Include" />
-        <e p="4.jpeg" t="Include" />
-        <e p="4.txt" t="Include" />
-        <e p="5.comment0" t="Include" />
-        <e p="5.comment1" t="Include" />
-        <e p="5.comment2" t="Include" />
-        <e p="5.jpeg" t="Include" />
-        <e p="5.txt" t="Include" />
-        <e p="6.jpeg" t="Include" />
-        <e p="6.txt" t="Include" />
-        <e p="7.jpeg" t="Include" />
-        <e p="7.txt" t="Include" />
       </e>
+      <e p="log.txt" t="Include" />
       <e p="Models" t="Include">
         <e p="CommentEntry.cs" t="Include" />
         <e p="PostEntry.cs" t="Include" />
@@ -48,6 +35,13 @@
       </e>
       <e p="Startup.cs" t="Include" />
       <e p="Test.csproj" t="IncludeRecursive" />
+      <e p="Validation" t="Include">
+        <e p="FirstSymbolCapitalAttribute.cs" t="Include" />
+        <e p="NotEmptyAttribute.cs" t="Include" />
+        <e p="Validation.cs" t="Include" />
+        <e p="ValidationAttribute.cs" t="Include" />
+        <e p="ValidationResult.cs" t="Include" />
+      </e>
       <e p="Views" t="Include">
         <e p="all_post_comments.html" t="Include" />
         <e p="all_posts.html" t="Include" />

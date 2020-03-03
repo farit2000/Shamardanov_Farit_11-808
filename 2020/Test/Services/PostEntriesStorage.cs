@@ -5,17 +5,23 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Test.Models;
+using System.Reflection;
+using Test.Validation;
 
 namespace Test.Services
 {
     public class PostEntriesStorage : IStorage
     {
-        public async Task Save(HttpContext context)
+        public async Task<Tuple<bool, string>> Save(HttpContext context)
         {
             string filePath = "Files";
             int fileCount = Directory.GetFiles(filePath, "*.txt", SearchOption.AllDirectories).Length;
             fileCount++;
-            if (context.Request.Form.Files.Count > 0)
+            PostEntry postEntry = new PostEntry();
+            postEntry.AuthorName= context.Request.Form["name"];
+            postEntry.Post = context.Request.Form["post"];
+            var validationResult = Validation.Validation.Validate(postEntry);
+            if (context.Request.Form.Files.Count > 0 && validationResult.IsValid)
             {
                 foreach (var file in context.Request.Form.Files)
                 {
@@ -32,11 +38,11 @@ namespace Test.Services
                         var fName = file.FileName;
                     }
                 }
-                string authorName = context.Request.Form["name"];
-                string post = context.Request.Form["post"];
-                var txtFileName = Path.Combine(filePath, fileCount + ".txt");
-                File.AppendAllLines(txtFileName, new string[] {authorName, post});
+                postEntry.PhotoName = Path.Combine(filePath, fileCount + ".txt");
+                File.AppendAllLines(postEntry.PhotoName, new string[] {postEntry.AuthorName, postEntry.Post});
+                return new Tuple<bool, string>(true, "Ok");
             }
+            return new Tuple<bool, string>(false, validationResult.ErrorMessage);
         }
 
         public List<Dictionary<string, string>> Load(HttpContext context)
@@ -58,13 +64,20 @@ namespace Test.Services
             return result;
         }
         
-        public void Edit(HttpContext context)
+        public Tuple<bool, string> Edit(HttpContext context)
         {
             string path = context.Request.Path.Value;
-            var authorName = context.Request.Form["name"];
-            var post = context.Request.Form["post"];
-            File.WriteAllLines(string.Format("Files/{0}.txt", path.Split("/").Last()),
-                new string[] {authorName, post});
+            PostEntry postEntry = new PostEntry();
+            postEntry.AuthorName= context.Request.Form["name"];
+            postEntry.Post = context.Request.Form["post"];
+            var validationResult = Validation.Validation.Validate(postEntry);
+            if (validationResult.IsValid)
+            {
+                File.WriteAllLines(string.Format("Files/{0}.txt", path.Split("/").Last()),
+                    new string[] {postEntry.AuthorName, postEntry.Post});
+                return new Tuple<bool, string>(true, "Ok");
+            }
+            return new Tuple<bool, string>(false, validationResult.ErrorMessage);
         }
 
         public void Remove(HttpContext context)

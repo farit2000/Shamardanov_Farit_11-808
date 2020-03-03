@@ -10,16 +10,23 @@ namespace Test.Services
 {
     public class CommentEntriesStorage : IStorage
     {
-        public async Task Save(HttpContext context)
+        public async Task<Tuple<bool, string>> Save(HttpContext context)
         {
             string filePath = "Files";
             var postId = context.Request.Path.Value.Split("/").Last();
             int fileCount = Directory.GetFiles(filePath, string.Format("{0}.comment*",postId),
                 SearchOption.AllDirectories).Length;
-            string commentAuthorName = context.Request.Form["name"];
-            string commentText = context.Request.Form["comment"];
+            PostEntry postEntry = new PostEntry();
+            postEntry.AuthorName= context.Request.Form["name"];
+            postEntry.Post = context.Request.Form["post"];
+            var validationResult = Validation.Validation.Validate(postEntry);
             var txtFileName = Path.Combine(filePath, postId + ".comment" + fileCount);
-            File.AppendAllLines(txtFileName, new string[] {commentAuthorName, commentText});
+            if (validationResult.IsValid)
+            {
+                File.AppendAllLines(txtFileName, new string[] {postEntry.AuthorName, postEntry.Post});
+                return new Tuple<bool, string>(true, "Ok");
+            }
+            return new Tuple<bool, string>(false, validationResult.ErrorMessage);
         }
 
         public List<Dictionary<string, string>> Load(HttpContext context)
@@ -40,7 +47,7 @@ namespace Test.Services
             return result;
         }
         //по заданию это организовывать не требуется
-        public void Edit(HttpContext context)
+        public Tuple<bool, string> Edit(HttpContext context)
         {
             throw new NotImplementedException();
         }

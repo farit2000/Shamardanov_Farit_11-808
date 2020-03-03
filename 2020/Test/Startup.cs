@@ -21,7 +21,7 @@ namespace Test
         {
             services.AddTransient<PostEntriesStorage>();
             services.AddTransient<CommentEntriesStorage>();
-            
+
             services.AddTransient<ServiceResolver>(serviceProvider => key =>
             {
                 switch (key)
