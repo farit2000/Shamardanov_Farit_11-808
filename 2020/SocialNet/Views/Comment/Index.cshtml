@@ -1,0 +1,21 @@
+@{
+    ViewData["Title"] = "Comments";
+}
+@{
+    foreach (var comment in ViewBag.Comments)
+    {
+        <div class="text-center">
+            <p>@comment.Text</p>
+            @{
+                if (ViewBag.CurrentUser == comment.Author.Email)
+                {
+                    <a asp-route-id="@comment.Id" asp-action="Edit" asp-controller="Comment">Edit comment</a>
+                    <br/>
+                    <a asp-route-id="@comment.Id" asp-action="Delete" asp-controller="Comment">Delete comment</a>
+                }
+            }
+        </div>
+        <hr/>
+    }
+}
+<a type="button" asp-route-id="@ViewBag.PostId" asp-action="Create" asp-controller="Comment">Add comment</a>

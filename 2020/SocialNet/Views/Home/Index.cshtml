@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@{
+    foreach (var post in ViewBag.Posts)
+    {
+        <div class="text-center">
+            <h4 class="display-4">@post.Name</h4>
+            <p>@post.Text</p>
+            @* <i>Author: @post.User.FirstName</i> *@
+            @{
+                if (ViewBag.CurrentUser == post.User.Email)
+                {
+                    <a asp-route-id="@post.Id" asp-action="Edit" asp-controller="Post">Edit post</a>
+                    <br/>
+                    <a asp-route-id="@post.Id" asp-action="Delete" asp-controller="Post">Delete post</a>
+                }
+            }
+            <br/>
+            <a asp-route-id="@post.Id" asp-action="Create" asp-controller="Comment">Add comment</a>
+            <br/>
+            <a asp-action="Index" asp-controller="Comment" asp-route-id="@post.Id">See all commenmts</a>
+            <br/>
+        </div>
+        <hr/>
+    }
+}
+<a type="button" asp-action="Create" asp-controller="Post">Crete post</a>
+

@@ -8,9 +8,7 @@
       <e p="Controllers" t="Include">
         <e p="HomeController.cs" t="Include" />
       </e>
-      <e p="Files" t="Include">
-        <e p="1.jpeg" t="Include" />
-      </e>
+      <e p="Files" t="Include" />
       <e p="log.txt" t="Include" />
       <e p="Models" t="Include">
         <e p="CommentEntry.cs" t="Include" />
