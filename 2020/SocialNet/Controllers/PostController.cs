@@ -6,12 +6,14 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Npgsql.TypeHandlers.CompositeHandlers;
+using SocialNet.Attributes;
 using SocialNet.Data;
 using SocialNet.Models;
 using SocialNet.ViewModels;
 
 namespace SocialNet.Controllers
 {
+    [MyAuthorizeActionFilter]
     public class PostController : Controller
     {
         private SocialNetContext _db;
@@ -22,23 +24,21 @@ namespace SocialNet.Controllers
         }
         
         // GET
-        public IActionResult Index()
-        {
-            return View();
-        }
+        // public IActionResult Index()
+        // {
+        //     return View();
+        // }
         
         [HttpPost]
-        [Authorize] 
         public async Task<IActionResult> Create(PostCreateModel postCreateModel)
         {
             _db.Posts.Add(new PostModel{Name = postCreateModel.PostName, Text = postCreateModel.PostText,
-                User = _db.Users.FirstOrDefault(u => u.Email == User.Identity.Name), CreateDate = DateTime.Now});
+                User = _db.Users.FirstOrDefault(u => u.Email == HttpContext.Request.Cookies["email"]), CreateDate = DateTime.Now});
             await _db.SaveChangesAsync();
             return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
-        [Authorize] 
         public IActionResult Edit(PostEditModel postEditModel, int id)
         {
             var post = _db.Posts.FirstOrDefault(p => p.Id == id);
@@ -49,14 +49,12 @@ namespace SocialNet.Controllers
         }
         
         [HttpGet]
-        [Authorize] 
         public IActionResult Create()
         {
             return View();
         }
 
         [HttpGet]
-        [Authorize] 
         public IActionResult Edit(int id)
         {
             var post = _db.Posts.FirstOrDefault(p => p.Id == id);
@@ -66,8 +64,8 @@ namespace SocialNet.Controllers
             return View();
         }
         
-        [Authorize]
         [HttpGet]
+        [AdminActionFilter]
         public IActionResult Delete(int id)
         {
             var comments = _db.Comments.Where(c => c.Post.Id == id);

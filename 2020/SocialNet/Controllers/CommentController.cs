@@ -3,6 +3,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using SocialNet.Attributes;
 using SocialNet.Data;
 using SocialNet.Models;
 using SocialNet.ViewModels;
@@ -10,6 +11,7 @@ using SocialNet.Views.Comment;
 
 namespace SocialNet.Controllers
 {
+    [MyAuthorizeActionFilter]
     public class CommentController : Controller
     {
         private SocialNetContext _db;
@@ -19,7 +21,6 @@ namespace SocialNet.Controllers
             _db = context;
         }
         // GET
-        [Authorize]
         public IActionResult Index(int id)
         {
             var comments = _db.Comments.Include(c => c.Author)
@@ -29,18 +30,20 @@ namespace SocialNet.Controllers
                 .AsEnumerable()
                 .ToList();
             ViewBag.Comments = comments;
-            ViewBag.CurrentUser = User.Identity.Name;
+            var email = HttpContext.Request.Cookies["Email"];
+            ViewBag.CurrentUser = email;
             ViewBag.PostId = id;
             return View();
         }
 
         [HttpPost]
-        [Authorize] 
         public IActionResult Create(CommentCreateModel commentCreateModel, int id)
         {
+            var email = HttpContext.Request.Cookies["Email"];
             var e = _db.Comments.Add(new CommentModel
             {
-                Author = _db.Users.FirstOrDefault(u => u.Email == User.Identity.Name),
+                
+                Author = _db.Users.FirstOrDefault(u => u.Email == email),
                 CreateDate = DateTime.Now,
                 Text = commentCreateModel.CommentText,
                 Post = _db.Posts.FirstOrDefault(p => p.Id == id)
@@ -51,7 +54,6 @@ namespace SocialNet.Controllers
         }
 
         [HttpPost]
-        [Authorize] 
         public IActionResult Edit(CommentEditModel commentEditModel, int id)
         {
             var comment = _db.Comments.Include(c => c.Post)
@@ -63,7 +65,6 @@ namespace SocialNet.Controllers
         }
         
         [HttpGet]
-        [Authorize] 
         public IActionResult Create(int id)
         {
             ViewBag.PostId = id;
@@ -71,7 +72,6 @@ namespace SocialNet.Controllers
         }
 
         [HttpGet]
-        [Authorize] 
         public IActionResult Edit(int id)
         {
             var comment = _db.Comments.FirstOrDefault(c => c.Id == id);
@@ -81,7 +81,7 @@ namespace SocialNet.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [AdminActionFilter]
         public IActionResult Delete(int id)
         {
             var comment = _db.Comments.Include(c => c.Post)

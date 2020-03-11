@@ -37,7 +37,6 @@
 /Users/faritshamardanov/Documents/Shamardanov_Farit_11-808/2020/Test/bin/Debug/netcoreapp3.1/appsettings.Development.json
 /Users/faritshamardanov/Documents/Shamardanov_Farit_11-808/2020/Test/bin/Debug/netcoreapp3.1/appsettings.json
 /Users/faritshamardanov/Documents/Shamardanov_Farit_11-808/2020/Test/bin/Debug/netcoreapp3.1/Properties/launchSettings.json
-/Users/faritshamardanov/Documents/Shamardanov_Farit_11-808/2020/Test/bin/Debug/netcoreapp3.1/Test
 /Users/faritshamardanov/Documents/Shamardanov_Farit_11-808/2020/Test/bin/Debug/netcoreapp3.1/Test.deps.json
 /Users/faritshamardanov/Documents/Shamardanov_Farit_11-808/2020/Test/bin/Debug/netcoreapp3.1/Test.runtimeconfig.json
 /Users/faritshamardanov/Documents/Shamardanov_Farit_11-808/2020/Test/bin/Debug/netcoreapp3.1/Test.runtimeconfig.dev.json

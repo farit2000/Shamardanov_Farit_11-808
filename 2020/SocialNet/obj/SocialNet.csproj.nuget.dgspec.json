@@ -14,7 +14,7 @@
         "outputPath": "/Users/faritshamardanov/Documents/Shamardanov_Farit_11-808/2020/SocialNet/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/faritshamardanov/.config/NuGet/NuGet.Config"
+          "/Users/faritshamardanov/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"

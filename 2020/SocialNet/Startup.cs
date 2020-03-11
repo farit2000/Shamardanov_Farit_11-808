@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SocialNet.Attributes;
 using SocialNet.Data;
 using SocialNet.Models;
 
@@ -32,16 +33,16 @@ namespace SocialNet
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<SocialNetContext>(options =>
                 options.UseNpgsql(connection));
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie(options =>
-                {
-                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
-                });
+            // services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            //     .AddCookie(options =>
+            //     {
+            //         options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
+            //     });
             // services.AddIdentityCore<User>()
             //     .AddRoleStore<IdentityRole>()
             //     .AddUserManager<User>();
             //     // .AddDefaultTokenProviders();
-                
+            services.AddScoped<MyAuthorizeActionFilter>();
             services.AddControllersWithViews();
 
         }

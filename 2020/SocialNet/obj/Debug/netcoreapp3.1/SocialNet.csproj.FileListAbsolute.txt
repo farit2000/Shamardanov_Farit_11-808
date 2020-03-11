@@ -58,3 +58,5 @@
 /Users/faritshamardanov/Documents/Shamardanov_Farit_11-808/2020/SocialNet/obj/Debug/netcoreapp3.1/Razor/Views/Comment/Create.cshtml.g.cs
 /Users/faritshamardanov/Documents/Shamardanov_Farit_11-808/2020/SocialNet/obj/Debug/netcoreapp3.1/Razor/Views/Comment/Edit.cshtml.g.cs
 /Users/faritshamardanov/Documents/Shamardanov_Farit_11-808/2020/SocialNet/obj/Debug/netcoreapp3.1/Razor/Views/Comment/Index.cshtml.g.cs
+/Users/faritshamardanov/Documents/Shamardanov_Farit_11-808/2020/SocialNet/obj/Debug/netcoreapp3.1/Razor/Views/MyAccount/Login.cshtml.g.cs
+/Users/faritshamardanov/Documents/Shamardanov_Farit_11-808/2020/SocialNet/obj/Debug/netcoreapp3.1/Razor/Views/MyAccount/Register.cshtml.g.cs
