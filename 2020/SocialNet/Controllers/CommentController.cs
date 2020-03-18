@@ -11,7 +11,7 @@ using SocialNet.Views.Comment;
 
 namespace SocialNet.Controllers
 {
-    [MyAuthorizeActionFilter]
+    [Authorize]
     public class CommentController : Controller
     {
         private SocialNetContext _db;
@@ -23,15 +23,17 @@ namespace SocialNet.Controllers
         // GET
         public IActionResult Index(int id)
         {
-            var comments = _db.Comments.Include(c => c.Author)
-                .Where(c => c.Post.Id == _db.Posts
-                    .Include(p => p.Comments)
-                    .Include(p => p.User).FirstOrDefault(t => t.Id == id).Id)
-                .AsEnumerable()
-                .ToList();
+            // var comments = _db.Comments.Include(c => c.Author)
+            //     .Where(c => c.Post.Id == _db.Posts
+            //         .Include(p => p.Comments)
+            //         .Include(p => p.User).FirstOrDefault(t => t.Id == id).Id)
+            //     .AsEnumerable()
+            //     .ToList();
+            var comments = _db.Comments.Include(u => u.Author)
+                .Where(p => p.Post.Id == id).ToList();
             ViewBag.Comments = comments;
-            var email = HttpContext.Request.Cookies["Email"];
-            ViewBag.CurrentUser = email;
+            var userName = User.Identity.Name;
+            ViewBag.UserName = userName;
             ViewBag.PostId = id;
             return View();
         }
@@ -39,11 +41,11 @@ namespace SocialNet.Controllers
         [HttpPost]
         public IActionResult Create(CommentCreateModel commentCreateModel, int id)
         {
-            var email = HttpContext.Request.Cookies["Email"];
+            var userName = User.Identity.Name;
             var e = _db.Comments.Add(new CommentModel
             {
                 
-                Author = _db.Users.FirstOrDefault(u => u.Email == email),
+                Author = _db.Users.FirstOrDefault(u => u.UserName == userName),
                 CreateDate = DateTime.Now,
                 Text = commentCreateModel.CommentText,
                 Post = _db.Posts.FirstOrDefault(p => p.Id == id)
@@ -56,12 +58,17 @@ namespace SocialNet.Controllers
         [HttpPost]
         public IActionResult Edit(CommentEditModel commentEditModel, int id)
         {
+
             var comment = _db.Comments.Include(c => c.Post)
+                .Include(u => u.Author)
                 .FirstOrDefault(c => c.Id == id);
-            comment.Text = commentEditModel.CommentText;
-            var PostId = comment.Post.Id;
-            _db.SaveChanges();
-            return RedirectToAction("Index", "Comment", new {id = PostId});
+            var postId = comment.Post.Id;
+            if (User.Identity.Name == comment.Author.UserName && comment.CreateDate.AddMinutes(15) >= DateTime.Now)
+            {
+                comment.Text = commentEditModel.CommentText;
+                _db.SaveChanges();
+            }
+            return RedirectToAction("Index", "Comment", new {id = postId});
         }
         
         [HttpGet]

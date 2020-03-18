@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="farit@78.138.129.80" uuid="3a90c489-454c-421a-89e6-3352a00b11c5">
+    <data-source source="LOCAL" name="farit@192.168.1.75" uuid="3a90c489-454c-421a-89e6-3352a00b11c5">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://78.138.129.80:5432/farit</jdbc-url>
+      <jdbc-url>jdbc:postgresql://192.168.1.75:5432/farit</jdbc-url>
     </data-source>
   </component>
 </project>

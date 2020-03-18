@@ -15,7 +15,6 @@ using SocialNet.Attributes;
 
 namespace SocialNet.Controllers
 {
-    [MyAuthorizeActionFilter]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -27,18 +26,11 @@ namespace SocialNet.Controllers
             _db = context;
         }
         
-        // [ServiceFilter(typeof(MyAuthorizeActionFilter))]
+        [Authorize]
         public IActionResult Index()
         {
             var posts = _db.Posts.Include(user => user.User).AsEnumerable().ToList();
             ViewBag.Posts = posts;
-            ViewBag.CurrentUser = HttpContext.Request.Cookies["Email"];
-            // var users = _db.Posts.Include(post => post.User)
-            //     .ToList();
-            // foreach (var post in posts)
-            // {
-            //     Console.WriteLine(_db.Posts.Include(post1 => post.User).ToList().First().User.FirstName);
-            // }
             return View();
         }
 

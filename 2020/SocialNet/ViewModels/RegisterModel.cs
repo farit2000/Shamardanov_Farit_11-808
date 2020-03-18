@@ -4,21 +4,23 @@ namespace SocialNet.ViewModels
 {
     public class RegisterModel
     {
-        [Required(ErrorMessage = "Не введено имя")]
-        public string FirstName { get; set; }
+        [Required]
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
         
-        [Required(ErrorMessage = "Не введена фамилия")]
-        public string LastName { get; set; }
-        
-        [Required(ErrorMessage ="Не указан Email")]
+        [Required]
+        [Display(Name = "Email")]
         public string Email { get; set; }
-         
-        [Required(ErrorMessage = "Не указан пароль")]
+
+        [Required]
         [DataType(DataType.Password)]
+        [Display(Name = "Пароль")]
         public string Password { get; set; }
-         
+ 
+        [Required]
+        [Compare("Password", ErrorMessage = "Пароли не совпадают")]
         [DataType(DataType.Password)]
-        [Compare("Password", ErrorMessage = "Пароль введен неверно")]
-        public string ConfirmPassword { get; set; }
+        [Display(Name = "Подтвердить пароль")]
+        public string PasswordConfirm { get; set; }
     }
 }

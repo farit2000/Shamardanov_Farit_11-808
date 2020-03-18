@@ -4,11 +4,18 @@ namespace SocialNet.ViewModels
 {
     public class LoginModel
     {
-        [Required(ErrorMessage = "Не указан Email")]
-        public string Email { get; set; }
+        [Required]
+        [Display(Name = "Username")]
+        public string UserName { get; set; }
          
-        [Required(ErrorMessage = "Не указан пароль")]
+        [Required]
         [DataType(DataType.Password)]
+        [Display(Name = "Пароль")]
         public string Password { get; set; }
+         
+        [Display(Name = "Запомнить?")]
+        public bool RememberMe { get; set; }
+         
+        public string ReturnUrl { get; set; }
     }
 }

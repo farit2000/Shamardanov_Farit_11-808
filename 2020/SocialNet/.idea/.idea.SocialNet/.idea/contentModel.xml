@@ -14,15 +14,14 @@
         <e p="AccountController.cs" t="Include" />
         <e p="CommentController.cs" t="Include" />
         <e p="HomeController.cs" t="Include" />
-        <e p="MyAccountController.cs" t="Include" />
         <e p="PostController.cs" t="Include" />
       </e>
       <e p="Data" t="Include">
         <e p="SocialNetContext.cs" t="Include" />
       </e>
       <e p="Migrations" t="Include">
-        <e p="20200310144959_InitialMigration.cs" t="Include" />
-        <e p="20200310144959_InitialMigration.Designer.cs" t="Include" />
+        <e p="20200318192445_InitialCreate.cs" t="Include" />
+        <e p="20200318192445_InitialCreate.Designer.cs" t="Include" />
         <e p="SocialNetContextModelSnapshot.cs" t="Include" />
       </e>
       <e p="Models" t="Include">
@@ -75,12 +74,6 @@
         <e p="Home" t="Include">
           <e p="Index.cshtml" t="Include" />
           <e p="Privacy.cshtml" t="Include" />
-        </e>
-        <e p="MyAccount" t="Include">
-          <e p="Login.cshtml" t="Include" />
-          <e p="Login.cshtml.cs" t="Include" />
-          <e p="Register.cshtml" t="Include" />
-          <e p="Register.cshtml.cs" t="Include" />
         </e>
         <e p="Post" t="Include">
           <e p="Create.cshtml" t="Include" />

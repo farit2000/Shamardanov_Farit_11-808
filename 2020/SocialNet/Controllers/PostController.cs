@@ -4,6 +4,7 @@ using System.Net.Mime;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Npgsql.TypeHandlers.CompositeHandlers;
 using SocialNet.Attributes;
@@ -13,7 +14,7 @@ using SocialNet.ViewModels;
 
 namespace SocialNet.Controllers
 {
-    [MyAuthorizeActionFilter]
+    [Authorize]
     public class PostController : Controller
     {
         private SocialNetContext _db;
@@ -33,7 +34,7 @@ namespace SocialNet.Controllers
         public async Task<IActionResult> Create(PostCreateModel postCreateModel)
         {
             _db.Posts.Add(new PostModel{Name = postCreateModel.PostName, Text = postCreateModel.PostText,
-                User = _db.Users.FirstOrDefault(u => u.Email == HttpContext.Request.Cookies["email"]), CreateDate = DateTime.Now});
+                User = _db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name), CreateDate = DateTime.Now});
             await _db.SaveChangesAsync();
             return RedirectToAction("Index", "Home");
         }
@@ -41,10 +42,14 @@ namespace SocialNet.Controllers
         [HttpPost]
         public IActionResult Edit(PostEditModel postEditModel, int id)
         {
-            var post = _db.Posts.FirstOrDefault(p => p.Id == id);
-            post.Name = postEditModel.PostName;
-            post.Text = postEditModel.PostText;
-            _db.SaveChanges();
+            var post = _db.Posts.Include(u => u.User)
+                .FirstOrDefault(p => p.Id == id);
+            if (post.User.UserName == User.Identity.Name)
+            {
+                post.Name = postEditModel.PostName;
+                post.Text = postEditModel.PostText;
+                _db.SaveChanges();
+            }
             return RedirectToAction("Index", "Home");
         }
         
@@ -57,7 +62,8 @@ namespace SocialNet.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            var post = _db.Posts.FirstOrDefault(p => p.Id == id);
+            var post = _db.Posts.Include(u => u.User)
+                .FirstOrDefault(p => p.Id == id);
             ViewBag.PostName = post.Name;
             ViewBag.PostText = post.Text;
             ViewBag.PostId = post.Id;

@@ -7,12 +7,12 @@
         <div class="text-center">
             <p>@comment.Text</p>
             @{
-                if (ViewBag.CurrentUser == comment.Author.Email)
-                {
-                    <a asp-route-id="@comment.Id" asp-action="Edit" asp-controller="Comment">Edit comment</a>
-                    <br/>
-                    <a asp-route-id="@comment.Id" asp-action="Delete" asp-controller="Comment">Delete comment</a>
-                }
+                 if (ViewBag.UserName == comment.Author.UserName && comment.CreateDate.AddMinutes(15) >= DateTime.Now)
+                 {
+                     <a asp-route-id="@comment.Id" asp-action="Edit" asp-controller="Comment">Edit comment</a>
+                     <br/>
+                     <a asp-route-id="@comment.Id" asp-action="Delete" asp-controller="Comment">Delete comment</a>
+                 }
             }
         </div>
         <hr/>

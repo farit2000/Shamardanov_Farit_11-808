@@ -1,7 +1,16 @@
-﻿@{
+﻿@* @{ *@
+
+@* } *@
+@* <a type="button" asp-action="Create" asp-controller="Post">Crete post</a> *@
+@* *@
+@{
     ViewData["Title"] = "Home Page";
 }
-@{
+ 
+ 
+@if(User.Identity.IsAuthenticated)
+{
+    <p>@User.Identity.Name</p>
     foreach (var post in ViewBag.Posts)
     {
         <div class="text-center">
@@ -16,6 +25,13 @@
                     <a asp-route-id="@post.Id" asp-action="Delete" asp-controller="Post">Delete post</a>
                 }
             }
+            @{
+                if (post.User.UserName == User.Identity.Name)
+                {
+                    <br/>
+                    <a asp-route-id="@post.Id" asp-action="Edit" asp-controller="Post">EditComment</a>
+                }
+            }
             <br/>
             <a asp-route-id="@post.Id" asp-action="Create" asp-controller="Comment">Add comment</a>
             <br/>
@@ -24,6 +40,13 @@
         </div>
         <hr/>
     }
+    <a asp-action="Create" asp-controller="Post">Crete post</a>
+    <form method="post" asp-controller="Account" asp-action="Logout">
+        <input type="submit" value="Выход" />
+    </form>
 }
-<a type="button" asp-action="Create" asp-controller="Post">Crete post</a>
-
+else
+{
+    <a asp-controller="Account" asp-action="Login">Вход</a>
+    <a asp-controller="Account" asp-action="Register">Регистрация</a>
+}
