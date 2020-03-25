@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Principal;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -14,6 +15,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SocialNet.Attributes;
 using SocialNet.Data;
+using SocialNet.Identity.Extensions;
 using SocialNet.Models;
 
 namespace SocialNet
@@ -37,6 +39,14 @@ namespace SocialNet
             services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<SocialNetContext>();
             services.AddControllersWithViews();
+            
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("PostTimeViewPolicy", policy => 
+                    policy.Requirements.Add(new TimeAccessRequirement()));
+            });
+
+            services.AddSingleton<IAuthorizationHandler, PostAuthorizationHandler>();
 
         }
 

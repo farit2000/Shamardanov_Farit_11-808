@@ -1,7 +1,9 @@
-﻿namespace SocialNet.Identity.Extensions
+﻿using Microsoft.AspNetCore.Authorization;
+
+namespace SocialNet.Identity.Extensions
 {
-    public class TimeAccessrequirement
+    public class TimeAccessRequirement : IAuthorizationRequirement
     {
-        
+        public int AccessTime = 15;
     }
 }

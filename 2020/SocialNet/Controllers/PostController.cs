@@ -18,10 +18,12 @@ namespace SocialNet.Controllers
     public class PostController : Controller
     {
         private SocialNetContext _db;
+        private IAuthorizationService _authorization;
         
-        public PostController(SocialNetContext context)
+        public PostController(SocialNetContext context, IAuthorizationService service)
         {
             _db = context;
+            _authorization = service;
         }
         
         // GET
@@ -60,14 +62,20 @@ namespace SocialNet.Controllers
         }
 
         [HttpGet]
-        public IActionResult Edit(int id)
+        public async Task<IActionResult> Edit(int id)
         {
             var post = _db.Posts.Include(u => u.User)
                 .FirstOrDefault(p => p.Id == id);
-            ViewBag.PostName = post.Name;
-            ViewBag.PostText = post.Text;
-            ViewBag.PostId = post.Id;
-            return View();
+            var authResult = await _authorization.AuthorizeAsync(User, post, "PostTimeViewPolicy");
+            if (authResult.Succeeded)
+            {
+                ViewBag.PostName = post.Name;
+                ViewBag.PostText = post.Text;
+                ViewBag.PostId = post.Id;
+                return View();
+            }
+            else
+                return new ForbidResult();
         }
         
         [HttpGet]
