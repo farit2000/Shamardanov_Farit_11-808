@@ -10,7 +10,7 @@ using SocialNet.Data;
 namespace SocialNet.Migrations
 {
     [DbContext(typeof(SocialNetContext))]
-    [Migration("20200318192445_InitialCreate")]
+    [Migration("20200325100426_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
