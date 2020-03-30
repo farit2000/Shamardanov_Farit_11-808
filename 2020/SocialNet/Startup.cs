@@ -15,6 +15,7 @@ using Microsoft.Extensions.Hosting;
 using SocialNet.Attributes;
 using SocialNet.Data;
 using SocialNet.Models;
+using SocialNet.Servises;
 
 namespace SocialNet
 {
@@ -30,6 +31,20 @@ namespace SocialNet
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            var appMode = Environment.GetEnvironmentVariable("AppMode");
+            if (appMode == null)
+            {
+                services.AddTransient<IMessageSender, EmailMessageSender>();
+                Environment.SetEnvironmentVariable("AppMode", "Debug");
+            }
+            else
+            {
+                if (appMode == "Production")
+                    services.AddTransient<IMessageSender, SmsMessageSender>();
+                services.AddTransient<IMessageSender, EmailMessageSender>();
+                
+            }
+            
             string connection = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<SocialNetContext>(options =>
                 options.UseNpgsql(connection));

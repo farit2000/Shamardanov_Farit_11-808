@@ -10,6 +10,7 @@ using Npgsql.TypeHandlers.CompositeHandlers;
 using SocialNet.Attributes;
 using SocialNet.Data;
 using SocialNet.Models;
+using SocialNet.Servises;
 using SocialNet.ViewModels;
 
 namespace SocialNet.Controllers
@@ -18,10 +19,12 @@ namespace SocialNet.Controllers
     public class PostController : Controller
     {
         private SocialNetContext _db;
+        private IMessageSender _messageSender;
         
-        public PostController(SocialNetContext context)
+        public PostController(SocialNetContext context, IMessageSender messageSender)
         {
             _db = context;
+            _messageSender = messageSender;
         }
         
         // GET
@@ -36,6 +39,7 @@ namespace SocialNet.Controllers
             _db.Posts.Add(new PostModel{Name = postCreateModel.PostName, Text = postCreateModel.PostText,
                 User = _db.Users.FirstOrDefault(u => u.UserName == User.Identity.Name), CreateDate = DateTime.Now});
             await _db.SaveChangesAsync();
+            _messageSender.Send();
             return RedirectToAction("Index", "Home");
         }
 
