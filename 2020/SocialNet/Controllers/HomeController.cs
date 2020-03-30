@@ -31,6 +31,7 @@ namespace SocialNet.Controllers
         {
             var posts = _db.Posts.Include(user => user.User).AsEnumerable().ToList();
             ViewBag.Posts = posts;
+            ViewBag.CurrentUser = User.Identity.Name;
             return View();
         }
 

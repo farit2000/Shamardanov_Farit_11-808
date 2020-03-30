@@ -18,7 +18,7 @@
             <p>@post.Text</p>
             @* <i>Author: @post.User.FirstName</i> *@
             @{
-                if (ViewBag.CurrentUser == post.User.Email)
+                if (ViewBag.CurrentUser == post.User.UserName)
                 {
                     <a asp-route-id="@post.Id" asp-action="Edit" asp-controller="Post">Edit post</a>
                     <br/>
